@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+    /* font-family: 'dabanggu'; */
+    width: 100%;
+  }
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  body {
+    background-color: #f2ebe6;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  ul {
+    padding: 0px;
+    margin: 0px;
+  }
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .wrapper > header,
+  .wrapper > main {
+    /* font-family: 'dabanggu'; */
+  }

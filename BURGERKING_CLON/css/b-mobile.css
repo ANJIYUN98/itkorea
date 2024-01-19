@@ -1,0 +1,277 @@
+/* *{
+    box-sizing: border-box;
+    margin: 0px !important;
+    border: 0px !important;
+}
+.body{
+    width: 100vw;
+}
+/* body{
+    width: 100vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+/* .wrapper{
+    width: 480px;
+    border: 0px;
+    margin: 0 auto;
+} */ 
+
+
+
+
+
+
+.wrapper>header{
+    /* height: 175px !important; */
+    /* display: flex; */
+    /* align-items: start !important; */
+    /* flex-direction: column !important; */
+}
+
+/* 로고 */
+/* .wrapper>header>.logo{
+    display:block !important;
+    align-items: center !important;
+    justify-content: center !important;
+} */
+/* .wrapper>header>.header-right{
+    height: 250px !important;
+    display: block;
+} */
+
+
+
+/* main은 기본 block */
+.wrapper>main{
+    width: 95%;
+    height: 570px;
+    margin: auto;
+}
+.wrapper>main>div{
+    
+}
+
+.wrapper>main>.site-menu{
+    display: none !important;
+}
+.wrapper>main>div>.site-menu>div{}
+.wrapper>main>div>.site-menu>div>a{}
+.wrapper>main>div>.site-menu>div>span{}
+
+/* .wrapper>main>div>.sub-menu{
+    padding: 0px !important;
+} */
+
+.wrapper>main>div>.sub-menu>.big-sub{
+    display: table;
+    table-layout: fixed;
+    /* border: 1px solid gray; */
+    width : 100%;
+    height: 50%;
+    margin: auto;
+}
+
+.wrapper>main>div>.sub-menu>.big-sub>p{
+    display: table-cell;
+    font-size: 1.7rem;
+    height: 100%;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+.wrapper>main>div>.sub-menu{
+    margin: auto;
+    display:block;
+    height: 20%;
+
+    text-align: center;
+    
+    /* border: 1px solid blue; */
+
+    
+}
+
+
+
+.wrapper>main>div>.sub-menu>.small-sub{
+    margin-top: 0;
+    width: 100%;
+    height: 50%;
+    
+    display: flex;
+    /* border: 1px solid green; */
+    flex-wrap: wrap;
+    
+}
+
+/* !!!!!!1 */
+.wrapper>main>div>.sub-menu>.small-sub>div{
+    /* width: 100%; */
+    width: 25%;
+    height: 50%;
+    display: flex;
+
+    /* align-content: start; */
+    /* flex-wrap: wrap; */
+    /* overflow: auto; */
+    
+}
+
+
+.wrapper>main>div>.sub-menu>.small-sub>div>input{
+    display: none;
+    
+}
+
+.wrapper>main>div>.sub-menu>.small-sub>div>label{
+    
+    /* border: 1px solid red !important; */
+    
+    font-size: 80%;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    
+
+    color: rgb(184, 184, 184); 
+
+}
+
+.wrapper>main>div>.sub-menu>.small-sub input:checked+label{
+    color: #d72300;
+    
+}
+
+/* !!!!!!! */
+/* .wrapper>main>div>.sub-menu>.small-sub label::before{
+    
+    content: '';
+    background-color: rgb(184, 184, 184);
+    display: block;
+    width: 1px;
+    height: 5px;
+    margin: 0 auto;
+    top: 0;
+    left: 10px;
+    
+} */
+.wrapper>main>div>.sub-menu>.small-sub label::before{
+    content: '|';
+    
+    margin-right: 20px;
+}
+
+
+
+.wrapper>main>div>.sub-menu>.small-sub>.sm-burger1>label::before{
+    content: '';
+}
+.wrapper>main>div>.sub-menu>.small-sub>.sm-burger5>label::before{
+    content: '';
+}
+.wrapper>main>div>.sub-menu>.small-sub input{
+  
+}
+/* .wrapper>main>div>.sub-menu>.small-sub>.sm-burger1>input+label{
+    flex-shrink: 1;
+}
+.wrapper>main>div>.sub-menu>.small-sub>.sm-burger2>input+label{
+    flex-shrink: 1;
+}
+.wrapper>main>div>.sub-menu>.small-sub>.sm-burger3>input+label{
+    flex-shrink: 1;
+}
+.wrapper>main>div>.sub-menu>.small-sub>.sm-burger4>input+label{
+    flex-shrink: 1;
+}
+.wrapper>main>div>.sub-menu>.small-sub>.sm-burger5>input+label{
+    flex-shrink: 1;
+}
+.wrapper>main>div>.sub-menu>.small-sub>.sm-burger6>input+label{
+    flex-shrink: 1;
+}
+.wrapper>main>div>.sub-menu>.small-sub>.sm-burger7>input+label{
+    flex-shrink: 1;
+}
+.wrapper>main>div>.sub-menu>.small-sub>.sm-burger8>input+label{
+    flex-shrink: 1;
+} */
+
+
+.wrapper>main>section.burger-menu{
+    
+    width : 100%;
+    height : 80%;
+    margin :0 auto;
+    /* border : 1px solid; */
+    display: flex;
+
+    align-items:start;
+    justify-content: start;
+    flex-direction: column;
+}   
+.wrapper>main>.burger-menu>.burger-box{
+    
+    /* flex-shrink: 0; */
+    width : 100% ;
+    height: 120px;
+   
+    /* display: flex; */
+    display: block;
+    /* border : 1px solid orange !important; */
+    margin-left: 0;    
+}
+.wrapper>main>.burger-menu>.burger-box>.r-burger{
+    position: absolute;
+    left:10px;
+    top:10px;
+    width: 35px;
+    height: 25px;
+    z-index:1;
+    /* border: 1px solid; */
+}
+.wrapper>main>.burger-menu>.burger-box>.r-burger>img{
+    
+    width: 100%;
+    height: 100%;
+    left:0px;
+    top:0px;
+}
+.wrapper>main>.burger-menu>.burger-box>.burgerimg{
+    
+}
+.wrapper>main>.burger-menu>.burger-box>.burgerimg>img{    
+    height: 80%;
+    width: 130px;
+    position: absolute;
+    left: 7px;
+    top: 9px;
+}
+.wrapper>main>.burger-menu>.burger-box>p{
+    position: absolute;
+    left: 25%;
+    top: 30%;
+    margin-bottom: 0;
+    margin-top: 0px;
+    width: 50%;
+
+}
+.wrapper>main>.burger-menu>.burger-box>p>strong{
+    font-size: 0.95rem;
+}
+.wrapper>main>.burger-menu>.burger-box::after{
+    content: "";
+    position: absolute;
+    
+    left:95%;
+    margin-top: 0px;
+    width: 11px;
+    height: 100%;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAgCAYAAAD9oDOIAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MDg5NkFFM0VFNkVCMTFFOEE1NUNGNzE0Q0UyREIzNTEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MDg5NkFFM0ZFNkVCMTFFOEE1NUNGNzE0Q0UyREIzNTEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDowODk2QUUzQ0U2RUIxMUU4QTU1Q0Y3MTRDRTJEQjM1MSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDowODk2QUUzREU2RUIxMUU4QTU1Q0Y3MTRDRTJEQjM1MSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PjoXMP8AAAG0SURBVHjanJZPK0RxFIbvlVITJsVHsNNISk0kKRRZsJfyZ0FCQyLJkEKYLIhEyoKdWIgoRZNSsrHxDawkaUaUrvfUuTWpcd47bz2L2+/0dOuec37XjUQijiYMDkEj2AWj4McJEM/zHNd1nfwM4TmI6vMQKAK9QcQilOSBQnCWIfTTDXak1gkYkU6B2iznPbmIRVpm1PSBzSBikSbAq1E3ANZZsUifQTN4M2qH9QUoqeRRxe9GvbTZCiuVPIAWQjwOFlmp5B60gg9DPAnmWankTsUpQzwDZmWKGKkkCdpA2hDHMUXTrFRyA9oJ8QKYYKWSa9ABPo26ZRBjpZJL0Am+jLo1MMJKJRcq/ibEFXkB9oSsQI/oe5eVNoFjUEAMxhMjbQAnIGTUTfm7wZLW6wIPEYOwxHz9OlI4p71q9mlUhYVE48eZiarRS7CYaPgZZqFUa7OHDWFCN5W5parAFSGUa2WM2aeV+oYlhnAjc8b/k5brG5Yatdt6T3mMNEZc03tgkBH60hejZh/0s0Jfugpus5wfBBX60rTeSck/Z0f62xPozy/z66dUfKrLeAt05SKU/AowAPhSWoCDlhBXAAAAAElFTkSuQmCC) no-repeat 100%;
+    background-size: auto 16px
+}
+
+
