@@ -1,0 +1,12 @@
+[Box]
+marin padding content border
+
+전체선택자 : *
+요소선택자 : div,span,ul
+클래스 선택자 : .class1
+아이디 선택자 : #id1
+자식선택자 : > , ' '
+등위선택자 : +, ~
+의사선택자
+가상선택자
+자손선택자 : nth-child(n), :first-child, :last-child
