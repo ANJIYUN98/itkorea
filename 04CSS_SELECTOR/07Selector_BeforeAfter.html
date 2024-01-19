@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 
+            ::before : content영역 앞에 표시할 스타일
+            ::after : content영역 뒤에 표시할 스타일
+        */
+
+        .d1{
+            width: 400px;
+            height: 200px;
+            border: 1px solid;
+            background-color: orange;
+            text-align: center;
+            line-height: 200px;
+        }
+        .d1::before{
+            content: '';
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            border : 1px solid gray;
+            background-image: url('https://img.freepik.com/premium-photo/picture-of-a-cute-puppy-world-animal-day_944128-5890.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .d1::after{
+            content: 🐱‍👤;
+        }
+    </style>
+</head>
+<body>
+    <div class="d1">HELLOWORLD</div>
+</body>
+</html>

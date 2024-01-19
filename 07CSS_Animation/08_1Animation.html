@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container{
+            
+            margin: 100px auto;
+            width: 400px;
+            position: relative;
+        }
+
+        .item{
+            width: 400px; height: 40px; background-color: orange;
+            color: white;
+            text-align: center;
+            line-height: 40px;
+            border: 1px solid black;
+            position: absolute;
+        }
+        .item:nth-child(1){
+            animation-name: moving1;
+            animation-duration: 3s;
+            /* 무한대로 움직임 */
+            animation-iteration-count: infinite;
+            /* 왔다갔다 */
+            animation-direction: alternate;
+            
+        }
+        .item:nth-child(2){
+            animation-name: moving2;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            top: 40px;
+        
+        }
+        .item:nth-child(3){
+            animation-name: moving3;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            top: 80px;
+            
+        }
+
+        @keyframes moving1{
+            from{margin-top: 100vh}
+            to{margin-top: 0vh;}
+        }
+        @keyframes moving2{
+            from{margin-left: 100vw;}
+            to{margin-left: 0vw;}
+        }
+        @keyframes moving3{
+            from{margin-top: 100%; margin-left: 100%;}
+            to{margin-top: 0%; margin-left: 0%;}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">HELLOWORLD1</div>
+        <div class="item">HELLOWORLD2</div>
+        <div class="item">HELLOWORLD3</div>
+    </div>
+</body>
+</html>

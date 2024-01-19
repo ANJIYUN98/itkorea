@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        input[type='checkbox']{
+            display: none;
+        }
+        input[type='checkbox']+label{
+            display: block;
+            width: 25px;
+            height: 25px;
+            border: 1px solid;
+            margin-right: 10px;
+        }
+        input[type='checkbox']:checked+label{
+            background-color: lightblue;
+            background-image: url('./images/check.svg');
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .chk_block{
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="chk_block">
+        <!-- input의 id를 설정하고 label for에 똑같이 설정하면 글을 선택해도 체크됨 -->
+        <input type="checkbox" id="chk">
+        <label for="chk"></label>
+        <span>체크박스</span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* common */
+        *{}
+        body{}
+        a{text-decoration: none; color: black;}
+        ul{list-style: none; margin: 0px; padding: 0px;}
+
+        /* wrapper */
+        .wrapper{}
+
+        /* wrapper>header */
+        .wrapper>header{}
+        .wrapper>header>.top-header{}
+
+        /* wrapper>header>nav */
+        .wrapper>header>nav{
+            height: 100px;
+            
+            /* 위아래 간격 띄우기 */
+            display: flex;
+            align-items: center;
+            /* 중앙으로 위치시키기 */
+            justify-content: center;
+        }
+
+        .wrapper>header>nav>.menu{
+            border: 1px solid red;
+            display: flex;
+            width: 100%;
+            /* 특정한 간격으로 띄우기 */
+            justify-content: space-between;
+            /* 양옆 여백 주기 
+               justify-content:spance-evenly;
+            */
+            align-items: center;
+            height: 75px;
+        }
+        .wrapper>header>nav>.menu>li{
+            width: 150px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            border: 1px solid green;
+
+            /* !! */
+            position: relative;
+        }
+        .wrapper>header>nav>.menu>li>a{
+            border: 1px solid orange;
+            display: block;
+        }
+        .wrapper>header>nav>.menu>li>.submenu{
+            border: 1px solid violet;
+            display: none;
+
+            /* !! */
+            position: absolute;
+            width: 150px;
+            left: 0px;
+            top: 35px;
+        }
+        .wrapper>header>nav>.menu>li>.submenu>li{
+            height: 35px;
+            border: 1px solid;
+        }
+        .wrapper>header>nav>.menu>li>.submenu>li>a{
+            display: block;
+        }
+        /* 01선택 .menu>li:hover 시 해당 .submenu만 표시 */
+        /* .wrapper>header>nav>.menu>li:hover .submenu{
+            display: block;
+        } */
+
+        /* 02선택 .menu:hover 시 전체 .submenu만 표시*/
+        .wrapper>header>nav>.menu:hover .submenu{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="wrapper">
+        <header>
+            <div class="top-header"></div>
+            <nav>
+                <ul class="menu">
+                    <li>
+                        <a href="">MENU01</a>
+                        <ul class="submenu">
+                            <li><a href="">SUBMENU01</a></li>
+                            <li><a href="">SUBMENU02</a></li>
+                            <li><a href="">SUBMENU03</a></li>
+                            <li><a href="">SUBMENU04</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">MENU02</a>
+                        <ul class="submenu">
+                            <li><a href="">SUBMENU01</a></li>
+                            <li><a href="">SUBMENU02</a></li>
+                            <li><a href="">SUBMENU03</a></li>
+                            <li><a href="">SUBMENU04</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">MENU03</a>
+                        <ul class="submenu">
+                            <li><a href="">SUBMENU01</a></li>
+                            <li><a href="">SUBMENU02</a></li>
+                            <li><a href="">SUBMENU03</a></li>
+                            <li><a href="">SUBMENU04</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">MENU04</a>
+                        <ul class="submenu">
+                            <li><a href="">SUBMENU01</a></li>
+                            <li><a href="">SUBMENU02</a></li>
+                            <li><a href="">SUBMENU03</a></li>
+                            <li><a href="">SUBMENU04</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section></section>
+        </main>
+        <footer></footer>
+    </div>
+</body>
+</html>

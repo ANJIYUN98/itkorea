@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- google icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style>
+
+
+
+    <!-- /* Tablet */ -->
+    <link rel="stylesheet" href="./css/tablet.css" media="all and (max-width:1024px)">
+
+    <!-- /* Mobile */ -->
+    <link rel="stylesheet" href="./css/mobile.css" media="all and (max-width:480px)">
+
+    <style>
+        /* common */
+        *{
+            margin : 5px;
+            border : 1px solid;
+            box-sizing: border-box;
+        }
+        body{margin:0;}
+        ul{ margin:0px; padding :0; list-style: none;}
+        a{ text-decoration: none; color:black;}
+
+        /*  */
+        .wrapper{}
+
+        /* header */
+        .wrapper>header{
+            
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /* header>.logo */
+        .wrapper>header>.header-left{
+            width:200px;
+            height : 100px;
+
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrapper>header>.header-left>img{
+            width:80%;
+            height:80%;
+        }
+        
+        .wrapper>header>.header-right{
+            width:100%;
+        }
+        
+        /*  */
+        .wrapper>header>.header-right>.top-header{
+            height : 35px;
+        }
+
+        .wrapper>header>.header-right>.top-header>.mobile-menu{
+            display:none;
+        }
+
+        .wrapper>header>.header-right>.top-header>.menu{
+            display:flex;
+            justify-content: right;
+            align-items: center;
+            border : 0 ;
+        }
+        .wrapper>header>.header-right>.top-header>.menu>li{
+            border : 0;
+            position:relative;
+            /* width:100px; */
+            text-align: center;
+            font-size:0.8rem;
+        }
+        .wrapper>header>.header-right>.top-header>.menu>li::after{
+           content:'|';  
+           position:absolute;
+           left:0;
+           top:0;   
+        }
+        .wrapper>header>.header-right>.top-header>.menu>li:first-child::after{
+            content:"";
+        }
+        .wrapper>header>.header-right>.top-header>.menu>li>a{
+            border : 0;
+        }
+
+
+        /*  */
+        .wrapper>header>.header-right>nav{
+            
+            height:100%;
+        }
+        .wrapper>header>.header-right>nav>.menu{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border : 0;
+            height:100%;
+        }
+        .wrapper>header>.header-right>nav>.menu>li{
+            flex-grow: 1;
+            flex-shrink: 0;
+            flex-basis:150px;
+            text-align: center;
+
+            position:relative;
+        }
+        .wrapper>header>.header-right>nav>.menu>li>a{
+            display:block;
+        }
+        .wrapper>header>.header-right>nav>.menu>li>.submenu{
+            background-color: white;
+            z-index:3;
+            position:absolute;
+            left:0px;
+            top:35px;
+            width:100%;
+
+            display:none;
+        }
+        .wrapper>header>.header-right>nav>.menu>li>.submenu>li{
+            height:35px;
+            line-height:35px;
+        }
+        .wrapper>header>.header-right>nav>.menu>li>.submenu>li>a{
+            
+        }
+      
+        .wrapper>header>.header-right>nav>.menu>li:hover .submenu{
+            display:block;
+        }
+
+
+        /* main */
+        .wrapper>main{
+            /* height : 700px; */
+        }
+        
+        .wrapper>main>section{}
+        .wrapper>main>section.main--section{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            height:500px;
+        }
+        .wrapper>main>section.main--section>aside{
+            flex-grow:1;
+            flex-shrink: 0;
+            flex-basis: 300px;
+            align-self :stretch;
+        }
+
+        .wrapper>main>section.main--section>article{
+            flex-grow:4;
+            flex-shrink:1;
+            flex-basis : 100%;
+            align-self :stretch;
+        }
+
+
+
+        /* footer */
+        .wrapper>footer{
+            height : 300px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <!-- 
+        Sementic 태그 :웹문서를 의미 있는 블록으로 나누어 구조를 만드는데 사용되는 태그
+        <header>    : 헤더 섹셕
+        <nav>       : 네비게이션 링크 섹션
+        <section>   : main안의 특정 영역 지정 섹션
+        <article>   : 문서의 본문 섹션
+        <aside>     : 문서의 사이드바 영역
+        <footer>    : 푸터 영역
+        <main>      : 문서 주요 컨텐츠 영역
+     -->
+
+    <div class="wrapper">
+        <header>
+            <div class="logo header-left">
+                <img src="" alt="LOGO">
+            </div>
+            <div class="header-right">
+                <div class="top-header">
+                    <ul class="menu">
+                        <li><a href="">MENU 1</a></li>
+                        <li><a href="">MENU 2</a></li>
+                        <li><a href="">MENU 3</a></li>
+                        <li><a href="">MENU 4</a></li>
+                    </ul>
+                    <div class="mobile-menu">
+                        <span class="material-symbols-outlined">menu</span>
+                    </div>
+                </div>
+                <nav>
+
+                    <ul class="menu">
+                        <li>
+                            <a href="">MENU1</a>
+                            <ul class="submenu">
+                                <li><a href="">SUBMENU1</a></li>
+                                <li><a href="">SUBMENU2</a></li>
+                                <li><a href="">SUBMENU3</a></li>
+                                <li><a href="">SUBMENU4</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">MENU2</a>
+                            <ul class="submenu">
+                                <li><a href="">SUBMENU1</a></li>
+                                <li><a href="">SUBMENU2</a></li>
+                                <li><a href="">SUBMENU3</a></li>
+                                <li><a href="">SUBMENU4</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">MENU3</a>
+                            <ul class="submenu">
+                                <li><a href="">SUBMENU1</a></li>
+                                <li><a href="">SUBMENU2</a></li>
+                                <li><a href="">SUBMENU3</a></li>
+                                <li><a href="">SUBMENU4</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">MENU4</a>
+                            <ul class="submenu">
+                                <li><a href="">SUBMENU1</a></li>
+                                <li><a href="">SUBMENU2</a></li>
+                                <li><a href="">SUBMENU3</a></li>
+                                <li><a href="">SUBMENU4</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+        </header>
+        <main>
+            
+
+            <section class="main--section">
+                <aside> ASIDE</aside>
+                <article> ARTICLE</article>
+            </section>
+
+            <section class="sub--section">
+                <aside> ASIDE</aside>
+                <article> ARTICLE</article>
+                <aside> ASIDE</aside>
+            </section>
+        </main>
+        <footer></footer>
+    </div>
+
+
+    <!-- 앞면 뒷면 뒤집기 코드 추가! -->
+    <style>
+        .container{
+            width:150px;
+            height:150px;
+            position:fixed;
+            left:0;right:0;top:0;bottom:0;
+            margin:auto;
+            border: 0px;
+
+            /*  */
+            perspective: 1000px;
+        }
+        .container *{
+            border : 0px;
+            margin : 0px;
+        }
+        .container>.card{
+            width:100%;
+            height:100%;
+            position:relative;
+
+            /*  */
+            transform-style:preserve-3d;
+            transition:1s;
+        }
+
+        .container>.card>.front,
+        .container>.card>.back
+        {
+            width:100%;
+            height:100%;
+            position:absolute;
+            left:0px;top:0px;
+            border-radius: 50%;
+            /* border:1px solid; */
+
+            display:flex;
+            justify-content : center;
+            align-items: center;
+            color:white;
+            /*  */
+            backface-visibility: hidden;
+
+
+        }
+        
+        .container>.card>.front{
+           background-color: orange;
+        }
+        .container>.card>.back{
+            background-color: royalblue;
+            /*  */
+            transform:rotateY(180deg);
+        }
+        .container:hover .card{
+            transform:rotateY(180deg);
+        }
+    </style>
+    <div class="container">
+        <div class="card">
+            <div class="front">FRONT</div>
+            <div class="back">BACK</div>
+        </div>
+    </div>
+
+
+    
+</body>
+</html>

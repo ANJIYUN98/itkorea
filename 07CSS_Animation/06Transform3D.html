@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{ box-sizing: border-box;}
+        body{}
+        .container{
+            width: 150px;
+            height: 150px;
+            position: fixed;
+            left: 0; right: 0; top: 0; bottom: 0;
+            margin: auto;
+            border: 1px solid;
+
+            /* z축 인식 정도 */
+            perspective: 1000px;
+        }
+        .container>.card{
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+            /*  */
+            transform-style: preserve-3d;
+            transition: 1s;
+        }
+        .container>.card>.front,
+        .container>.card>.back
+        {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0px; top: 0px;
+            border-radius: 50%;
+            border: 1px solid;
+
+            /*  */
+            backface-visibility: hidden;
+        }
+
+        .container>.card>.front{
+            background-image: url('https://www.starbucks.co.kr/common/img/common/logo.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        .container>.card>.back{
+            background-color: royalblue;
+            font-size: 0.5rem;
+            text-align: center;
+            padding: 30px;
+            color: white;
+
+            /*  */
+            transform: rotateY(180deg);
+        }
+        .container:hover .card{
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="front"></div>
+            <div class="back">
+                아이스아메리카노 할인 이벤트<br>
+                PRICE : 2.000<br>
+                행사기간<br/>
+                2024-01-12 ~ 2024-01-21<br/>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

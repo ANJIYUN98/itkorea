@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .wrapper{
+            width: 100%;
+            height: 800px;
+            margin: 0 auto;
+        }
+        .wrapper>.parent{
+            width: 100%;
+            height: 100px;
+            border: 1px solid;
+
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            /* align-items를 center로 잡으면 align-content:stretch가 되지 않음 */
+        }
+        .wrapper>.parent>.item{
+            border: 1px solid;
+        }
+        .wrapper>.parent>.item:nth-child(1){
+            flex-grow: 1;
+            flex-shrink: 0;
+            flex-basis: 300px;
+            height: 50px;
+        }
+        .wrapper>.parent>.item:nth-child(2){
+            flex-grow: 1;
+            /* flex-basis: 300px; */
+            height: 50px;
+        }
+        .wrapper>.parent>.item:nth-child(3){
+            flex-grow: 1;
+            /* flex-basis: 300px; */
+            height: 50px;
+        }
+        .wrapper>.parent>.item:nth-child(4){
+            flex-grow: 1;
+            /* flex-basis: 300px; */
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="parent">
+            <div class="item">MENU 1</div>
+            <div class="item">MENU 2</div>
+            <div class="item">MENU 3</div>
+            <div class="item">MENU 4</div>
+        </div>
+    </div>
+</body>
+</html>

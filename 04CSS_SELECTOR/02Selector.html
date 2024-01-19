@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            width: 300px;
+            border: 1px solid;
+        }
+        /* 자식선택자 : >*/
+        .parent>div{
+            background-color: orange;
+        }
+        .parent>p{
+            font-size: 1.5rem;
+        }
+        .parent>.child{
+            border : 5px dashed green;
+        }
+
+        /* 자손선택자 : 공백 */
+        .parent p{
+            color: crimson;
+        }
+        .parent div{
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="parent">
+        <div class="child">
+            <div>1 HELLOWORLD</div>
+            <div>2 HELLOWORLD</div>
+            <div>3 HELLOWORLD</div>
+            <P>4 HELLOWORLD</P>
+        </div>
+        <div>5 HELLOWORLD</div>
+        <P>6 HELLOWORLD</P>
+    </div>
+</body>
+</html>

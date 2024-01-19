@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            width: 100px; height: 50px; margin: 10px; background-color: orange;
+        }
+        div:hover{
+            width: 500px;
+        }
+        div:nth-child(1){
+            /* 지연 */
+            transition: 0.5s;
+        }
+        div:nth-child(2){
+            transition: 2s;
+        }
+        div:nth-child(3){
+            transition: 5s;
+        }
+
+
+        p{}
+
+        p>input{
+            width: 200px;
+            height: 25px;
+            border: 0px;
+            /* border-bottom: 1px solid lightgray; */
+        }
+        p>input:focus{
+            outline: none;
+        }
+        p>span{
+            width: 0px;
+            height: 1px;
+            background-color: lightgray;
+            display: block;
+            transition: .5s;
+        }
+        p>input:focus+span{
+            /* background : linear-gradient('방향',색상1,색상2); */
+            background : linear-gradient(to right,red,orange, yellow, green);
+            width: 200px;
+           
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <hr>
+    <p>
+        <input type="text">
+        <span></span>
+    </p>
+</body>
+</html>

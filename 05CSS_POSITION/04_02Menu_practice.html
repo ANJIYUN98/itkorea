@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{}
+        body{}
+        a{text-decoration: none; color: black;}
+        ul{list-style: none; margin: 0px; padding: 0px;}
+
+        .wrapper{}
+
+        .wrapper>header{}
+        .wrapper>header>.top-header{}
+
+        .wrapper>header>nav{
+            height: 100px;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .wrapper>header>nav>.menu{
+            border: 1px solid red;
+            display: flex;
+            width: 100%;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 75px;
+
+        }
+        .wrapper>header>nav>.menu>li{
+            border: 1px solid green;
+            width: 152px;
+            height: 35px;
+            line-height: 35px;
+            position: relative;
+            text-align: center;
+        }
+        .wrapper>header>nav>.menu>li>a{
+            border: 1px solid violet;
+            display: block;
+            font-weight: bold;
+        }
+        .wrapper>header>nav>.menu>li>.submenu{
+            border: 1px solid brown;
+            display: none;
+            position: absolute;
+        }
+        .wrapper>header>nav>.menu>li>.submenu>li{
+            border: 1px solid orange;
+            width:150px;
+            
+        }
+        .wrapper>header>nav>.menu>li>.submenu>li>a{
+            border: 1px solid midnightblue;
+            display: block;
+            font-size: .8rem;
+            color: grey;
+            font-weight: 600;
+        }
+        
+
+        .wrapper>header>nav>.menu>li>a:hover{
+            color:green;
+        }
+        /* .hover-color:hover{
+            color: green;
+        } */
+        /* .hover-color.hover{
+            color: green;
+        } */
+        .wrapper>header>nav>.menu>li>.submenu>li>a:hover{
+            color:green;
+            text-decoration: underline;
+        }
+
+        .wrapper>header>nav>.menu:hover .submenu{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="top-header"></div>
+            <nav>
+                <ul class="menu">
+                    <li>
+                        <a href="" class="hover-color">메뉴소개</a>
+                        <ul class="submenu">
+                            <li><a href="">샌드위치</a></li>
+                            <li><a href="">랩, 기타</a></li>
+                            <li><a href="">샐러드</a></li>
+                            <li><a href="">아침메뉴</a></li>
+                            <li><a href="">스마일 썹</a></li>
+                            <li><a href="">단체메뉴</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">이용방법</a>
+                        <ul class="submenu">
+                            <li><a href="">써브웨이 이용방법</a></li>
+                            <li><a href="">단체메뉴 이용방법</a></li>
+                            <li><a href="">신선한 재료 소개</a></li>
+                            <li><a href="">APP 이용방법</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">새소식</a>
+                        <ul class="submenu">
+                            <li><a href="">이벤트, 프로모션</a></li>
+                            <li><a href="">뉴스, 공지사항</a></li>
+                            <li><a href="">광고영상</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">써브웨이</a>
+                        <ul class="submenu">
+                            <li><a href="">써브웨이 역사</a></li>
+                            <li><a href="">써브웨이 약속</a></li>
+                            <li><a href="">샌드위치 아티스트 지원</a></li>
+                            <li><a href="">매장찾기</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">가맹점</a>
+                        <ul class="submenu">
+                            <li><a href="">써브웨이 프랜차이즈</a></li>
+                            <li><a href="">가맹관련 FAQ</a></li>
+                            <li><a href="">가맹신청,문의</a></li>
+                            <li><a href="">지사안내</a></li>
+                            <li><a href="">사업설명회</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">온라인주문</a>
+                        <ul class="submenu">
+                            <li><a href="">FAST-SUB</a></li>
+                            <li><a href="">HOME-SUB</a></li>
+                            <li><a href="">단체주문</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+</body>
+</html>

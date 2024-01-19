@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .wrapper{
+            width: 1536px;
+            height: 864px;
+            border: 1px solid gray;
+            /* 가운데 배치 */
+            margin:0 auto;
+
+            padding: 50px;
+        }
+        .wrapper>.parent{
+            border: 1px solid gray;
+            display : flex;
+            height: 150px;
+
+            /* display : flex;는 자식한테만 설정 가능, 자손한테는 영향 안 미침 */
+            /* 수평배치 center right left space-between space-evenly space-around */
+            justify-content: space-around;
+            /* 수직배치 start, end, center, flex-end, flex-start */
+            align-items: center;
+            /* row, column 형태로 item 방향 지정 */
+            flex-direction: row;
+        }
+        .wrapper>.parent>.child{
+            width: 120px;
+            height: 40px;
+            border: 1px solid;
+        }
+
+
+        .wrapper>.parent2{
+            height: 150px;
+            border: 1px solid;
+            margin-top: 100px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            /* 자손의 길이가 길어도 부모를 벗어 날 수 없어 원하는 값만큼의 길이를 가지지 못해 밑으로 내려보내는 것 */
+            /* item의 크기가 부모를 초과하면 다음행에서 보여줄지 여부 */
+            flex-wrap: wrap;
+
+            /*  */
+            /* align-content: stretch; */
+        }
+        .wrapper>.parent2>.item{
+            width: 200px;
+            /* height: 40px; */
+            border: 1px solid;
+        }
+        .wrapper>.parent2>.item:nth-child(1){
+            align-self: stretch;
+        }
+        .wrapper>.parent2>.item:nth-child(3){
+            align-self: stretch;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- .wrapper>.parent>.child*4{$}^.parent2>.item*12{$} -->
+    <div class="wrapper">
+        <div class="parent">
+            <div class="child">1</div>
+            <div class="child">2</div>
+            <div class="child">3</div>
+            <div class="child">4</div>
+        </div>
+        <div class="parent2">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+            <div class="item">7</div>
+            <div class="item">8</div>
+            <div class="item">9</div>
+            <div class="item">10</div>
+            <div class="item">11</div>
+            <div class="item">12</div>
+        </div>
+    </div>
+</body>
+</html>

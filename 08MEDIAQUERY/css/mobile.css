@@ -1,0 +1,99 @@
+/* div{ 
+    height:50px;
+    background-color: royalblue;
+} */
+*{
+    box-sizing: border-box;
+    margin : 0px !important;
+    border : 0px !important;
+}
+body{
+    width : 100vw;
+    margin : 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.wrapper{
+    width : 380px;
+    border : 0px;
+    margin : 0 auto;
+
+   
+}
+
+.wrapper>header{
+    /* height :175px !important; */
+    display:flex;
+    align-items: start !important;
+    flex-direction: column !important;
+
+}
+
+/* 로고는 안보이게 */
+.wrapper>header>.header-left{
+    display:none !important;
+}
+.wrapper>header>.header-right{
+    display:block;
+}
+
+.wrapper>header>.header-right>.top-header{
+    border : 1px solid !important;
+    display:flex;
+    justify-content: right !important;
+    align-items: center;
+    
+}
+.wrapper>header>.header-right>.top-header>.menu{
+    display:none !important;
+}
+
+/* topheader mobile menu 보이게 */
+.wrapper>header>.header-right>.top-header>.mobile-menu{
+    display:block !important;
+    border : 0px;
+    
+}
+
+.wrapper>header>.header-right>nav{
+ 
+}
+.wrapper>header>.header-right>nav>.menu{
+
+}
+.wrapper>header>.header-right>nav>.menu>li{
+    width : 100%;
+    height : 35px;
+    border : 1px solid !important;
+}
+.wrapper>header>.header-right>nav>.menu>li>a{
+    display:block;
+    width:100%; 
+    height : 35px;
+    line-height : 35px;
+}
+.wrapper>header>.header-right>nav>.menu>li>.submenu{
+    border : 1px solid !important;
+}
+
+/* main은 기본 block */
+.wrapper>main{
+
+}
+.wrapper>main>*{
+    
+}
+.wrapper>main>section.main--section{
+    display:flex;
+    flex-direction: column;
+   
+}
+.wrapper>main>section.main--section>*{
+    border : 1px solid !important;
+}
+/* 앞뒤 애니메이션 없애기 */
+.container{
+    display:none;
+}

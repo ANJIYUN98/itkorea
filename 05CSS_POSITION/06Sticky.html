@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=-, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{}
+        body{
+            height: 3000px;
+        }
+
+        .wrapper{}
+        /* header */
+        .wrapper>header{
+            height: 100px;
+            border: 1px solid;
+            margin-bottom: 20px;
+        }
+        .wrapper>header>.top-header{}
+        .wrapper>header>nav{}
+
+        /* main */
+        .wrapper>main{}
+        .wrapper>main>section{
+            height : 500px
+        }
+        .wrapper>main>section>.parent{
+            width: 500px;
+            height: 500px;
+            background-color: royalblue;
+
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+        }
+        .wrapper>main>section>.parent>.son{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            border: 1px solid;
+        }
+        .wrapper>main>section>.parent>.son:nth-child(1){
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+        .wrapper>main>section>.parent>.son:nth-child(2){
+            position: absolute;
+            top: 0;
+            left: 110px;
+        }
+        .wrapper>main>section>.parent>.son:nth-child(3){
+            position: fixed;
+            top: 130px;
+            left: 230px;
+        }
+        .wrapper>main>section>.parent>.son:nth-child(4){
+            position: sticky;
+
+            /* 스크롤시 이동되는 top의 위치 */
+            top: -50px;
+            left: 340px;
+        }
+    </style>
+</head>
+<body>
+    <!-- .wrapper>header>.top-header+nav^main>section^footer -->
+    <div class="wrapper">
+        <header>
+            <div class="top-header"></div>
+            <nav></nav>
+        </header>
+        <main>
+            <section>
+                <div class="parent">
+                    <div class="son">relative</div>
+                    <div class="son">absolute</div>
+                    <div class="son">fixed</div>
+                    <div class="son">sticky</div>
+                </div>
+            </section>
+        </main>
+        <footer></footer>
+    </div>
+</body>
+</html>

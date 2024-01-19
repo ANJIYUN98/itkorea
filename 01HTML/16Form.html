@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="test.jsp">
+        <div>
+            <label>계정명</label>
+            <input type="text" required>
+        </div>
+        <div>
+            <label>패스워드</label>
+            <input type="password"
+                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                required
+                oninvalid="this.setCustomValidity('8자 이상 문자-숫자-문자 순으로 입력하세요.')">
+                
+                <!-- ^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$
+                     ^             : 시작
+                    $              : 끝
+                    (?=pattern)    : 전방탐색
+                    .              : 모든문자와 일치해야 함
+                    *              : 앞의 문자나 부분식이 0개 이상 탐욕적으로 찾기
+                    (?=.*[A-Za-z]) : 적어도 한개의 알파벳 문자가 반드시 포함되어야 함
+                    (?=.*\d)       : 적어도 한개의 숫자가 반드시 포함되어야 함
+                    [A-Za-z\d]{8,} : 알파벳 대문자와 소문자로 이루어진 문자열이며 
+                                     최소 8자이상 이어야 함
+         -->
+        </div>
+        <div>
+            <label>이메일</label>
+            <input type="email" required>
+        </div>
+        <div>
+            <label>주민등록번호</label>
+            <input readonly value="888888-8881023" name="id1">
+        </div>
+        <div>
+            <label>주민등록번호</label>
+            <input disabled value="888888-8881023" name="id2">
+            <!-- disabled로 하면 서버로 전달이 안됨, 클라이언트만 볼 수 있음 -->
+        </div>
+        <div>
+            <label>데이터 숨기기</label>
+            <input type="hidden" name="pageNo" value="5">
+        </div>
+        <div>
+            <label>연락처</label>
+            <input type="tel" pattern="[0-9]{3,4}" required>
+        </div>
+        <div>
+            <input type="submit">
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 
+         :first-child : 첫번째 자식요소
+         :last-child : 마지막 자식요소
+         :nth-child(n) : n번째 자식요소
+         */
+
+         ul{
+            list-style: none;
+            padding: 0px; 
+            margin:0px;
+         }
+
+        ul>li{
+            width: 100px;
+            height: 35px;
+            border: 1px solid;
+            margin: 5px;
+        }
+        ul>li:first-child{
+            background-color: orange;
+        }
+        ul>li:last-child{
+            background-color: red;
+        }
+        ul>li:nth-child(1){
+            text-align: center;
+        }
+        ul>li:nth-child(2){
+            background-color: aquamarine;
+        }
+        ul>li:nth-child(3){
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><a href="">TEST 1</a></li>
+            <li><a href="">TEST 2</a></li>
+            <li><a href="">TEST 3</a></li>
+            <li><a href="">TEST 4</a></li>
+        </ul>
+    </div>
+</body>
+</html>

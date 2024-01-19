@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            padding: 200px;
+        }
+        .container{
+            width: 100px;
+            height: 100px;
+            background-color: royalblue;
+            position: relative;
+            text-align: center;
+        }
+        .container>.item{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            font-size: 60px;
+            text-align: center;
+            line-height: 100px;
+            transition: 1s;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+
+        }
+        .container:hover .item{
+            transform: perspective(50px) rotateY(180deg);
+            /* backface-visibility: hidden; */
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="item"></div>
+    </div>
+</body>
+</html>

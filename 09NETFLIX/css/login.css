@@ -1,0 +1,135 @@
+
+.bg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vw;
+    width: 100vw;
+    background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/df6621a3-890c-4ca0-b698-90bd5152f3d1/ef634d0f-a0ed-404f-8e33-563bb801f5a4/KR-ko-20240107-trifectadaily-perspective_alpha_website_small.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg>.bg-style{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vw;
+    width: 100vw;
+    background-image:linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%)
+}
+
+
+.wrapper{}
+
+
+
+/* header */
+.wrapper>header{
+    height: 100px;
+}
+.wrapper>header>.top-header{}
+.wrapper>header>nav{}
+
+.wrapper>header>nav>.nav--left{}
+.wrapper>header>nav>.nav--left>img{
+    width: 200px;
+    height: 80px;
+}
+
+/* main */
+.wrapper>main{}
+.wrapper>main>section{}
+
+/* section.login */
+.wrapper>main>section.login{
+    width: 450px;
+    height: 660px;
+    margin: 0 auto;
+    /* border: 1px solid white; */
+    padding: 60px 68px 40px;
+    border-radius: 5px;
+    color: white;
+
+    position: relative;
+}
+
+.wrapper>main>section.login>.title{
+    margin-bottom: 28px;
+    z-index: 2;
+}
+
+.wrapper>main>section.login>.login-body{}
+.wrapper>main>section.login>.login-body>form{
+    z-index: 2;
+}
+.wrapper>main>section.login>.login-body>form>div{
+    margin-bottom: 20px;
+}
+.wrapper>main>section.login>.login-body>form>div>*{
+    height: 50px;
+}
+.wrapper>main>section.login>.login-body>form input{
+    background-color: rgb(68, 67, 67);
+    color: white;
+}
+
+.wrapper>main>section.login>.login-body>form input::placeholder{
+    transition: .1s;
+}
+.wrapper>main>section.login>.login-body>form input:focus::placeholder{
+    position: absolute;
+    left: 15px;
+    top: 5px;
+    font-size: 0.6rem;
+}
+
+.wrapper>main>section.login>.login-body>form button{}
+
+.wrapper>main>section.login>.login-option{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    margin-bottom: 100px;
+
+    z-index: 2;
+}
+.wrapper>main>section.login>.login-option>div:nth-child(1){}
+.wrapper>main>section.login>.login-option>div:nth-child(2){}
+.wrapper>main>section.login>.login-option>div:nth-child(2)>a{
+    text-decoration: none;
+    color: white;
+}
+.wrapper>main>section.login>.login-option>div:nth-child(2)>a:hover{
+    text-decoration: underline;
+}
+
+.wrapper>main>section.login>.login-footer{
+    font-size: 0.8rem;
+    z-index: 2;
+}
+.wrapper>main>section.login>.login-footer>p{
+    font-size: 1rem;
+}
+.wrapper>main>section.login>.login-footer>a{
+    text-decoration: none;
+}
+.wrapper>main>section.login>.login-footer>a:hover{
+    text-decoration: underline;
+}
+
+.wrapper>main>section.login>.login-bg{
+    width: 450px;
+    height: 660px;
+
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: black;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+/* footer */
+.wrapper>footer{}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{border: 1px solid;}
+        .parent{
+            width: 500px;
+            height: 500px;
+            background-color: royalblue;
+            margin-top: 100px;
+            position: relative;
+        }
+        .son{
+            width: 50px;
+            height: 50px;
+            background-color: orange;
+        }
+        .son:nth-child(1){
+            /* 상위태그(.parent)에 반드시 position설정해야 함 */
+            position: absolute;
+            left:50%;
+            top:0px;
+        }
+        .son:nth-child(2){
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+        .son:nth-child(3){
+            position: absolute;
+            /* 가운데 배치시키는 방법 : top, left, right, bottom을 0px으로 잡고 margin을 auto로 하면 됨 */
+            left:0px;
+            top: 0px;
+            right: 0px;
+            bottom: 0px;
+            margin: auto;
+        }
+        .son:nth-child(4){
+            position: absolute;
+            left: 100%;
+            top: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="son">1</div>
+        <div class="son">2</div>
+        <div class="son">3</div>
+        <div class="son">4</div>
+    </div>
+</body>
+</html>

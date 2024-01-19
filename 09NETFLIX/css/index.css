@@ -1,0 +1,213 @@
+.btn{
+    border-radius: 3px;
+    outline: none;
+    background-color: red;
+    color: white;
+}
+.object-fit{
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.btn:hover{
+    background-color: rgb(146, 0, 0);
+    color: white;
+}
+
+/* bg */
+.bg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 700px;
+    width: 100vw;
+    background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/df6621a3-890c-4ca0-b698-90bd5152f3d1/ef634d0f-a0ed-404f-8e33-563bb801f5a4/KR-ko-20240107-trifectadaily-perspective_alpha_website_small.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bg>.bg-style{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 700px;
+    width: 100vw;
+    background-image:linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%)
+}
+
+
+.wrapper{}
+
+/* header */
+.wrapper>header{
+    height: 100px;
+}
+.wrapper>header>.top-header{}
+
+/*  */
+.wrapper>header>nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.wrapper>header>nav>.nav--left{}
+.wrapper>header>nav>.nav--left>img{
+    width: 250px;
+    height: 100px;
+}
+
+
+.wrapper>header>nav>.nav--right{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper>header>nav>.nav--right select{
+    width: 150px;
+    background-color: transparent;
+    text-align: center;
+    color: white;
+}
+.wrapper>header>nav>.nav--right a{}
+.wrapper>header>nav>.nav--right>div:nth-child(1){
+    margin-right: 35px;
+}
+
+/* main */
+.wrapper>main{}
+.wrapper>main>section{}
+
+.wrapper>main>section.main--section{
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper>main>section.main--section>div{
+    text-align: center;
+    color: white;
+
+}
+.wrapper>main>section.main--section>div>.left{
+    display: flex;
+    flex-direction: column;
+}
+.wrapper>main>section.main--section>div>.left>span:nth-child(1){
+    font-size: 3rem;
+    font-weight: 800;
+}
+.wrapper>main>section.main--section>div>.left>span:nth-child(2){
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.wrapper>main>section.main--section>div>.left>span:nth-child(3){}
+
+.wrapper>main>section.main--section>div>.right{}
+.wrapper>main>section.main--section>div>.right>form{
+    display: flex;
+}
+.wrapper>main>section.main--section>div>.right input[type="text"]{
+    width: 400px;
+    height: 60px;
+    background-color: transparent;
+    font-size: 1.2rem;
+    color: white;
+    margin-right: 25px;
+    background-color: black;
+    opacity: 0.7;
+
+    position: relative;
+
+}
+.wrapper>main>section.main--section>div>.right input[type="text"]:focus{
+    outline: 3px solid white;
+}
+.wrapper>main>section.main--section>div>.right input[type="text"]::placeholder{
+    font-size: 1rem;
+    color: lightgray;
+    transition: 0.2s;
+}
+.wrapper>main>section.main--section>div>.right input[type="text"]:focus::placeholder{
+    display: block;
+    position: absolute;
+    left: 15px;
+    top: 5px;
+    font-size: 0.8rem;
+}
+.wrapper>main>section.main--section>div>.right a{
+    width: 180px;
+    height: 60px;
+    
+    font-size: 1.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* section.sub01 */
+.wrapper>main>section.sub01{
+    height: 600px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -100px;
+    border-top: 3px solid gray;
+    border-bottom: 3px solid gray;
+}
+.wrapper>main>section.sub01>div{
+    /* height: 100%; */
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    top: -50px;
+}
+.wrapper>main>section.sub01 .sub--left{
+    /* width: 600px; */
+    color: white;
+    /* border: 1px solid white; */
+    margin-right: 50px;
+
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+.wrapper>main>section.sub01 .sub--left>p{
+    font-size: 3rem;
+    font-weight: 800;
+}
+.wrapper>main>section.sub01 .sub--left>div{
+    font-size: 1.6rem;
+    /* font-weight: 600; */
+}
+
+.wrapper>main>section.sub01 .sub--right{
+    position: relative;
+    width: 100%;
+
+    /* border: 1px solid white; */
+}
+.wrapper>main>section.sub01 .sub--right>img{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    z-index: 2;
+
+    /* border: 1px solid white; */
+}
+.wrapper>main>section.sub01 .sub--right>video{
+    position: absolute;
+    top: -10px;
+    bottom: 0;
+    right: 90px;
+    margin: auto;
+
+}
+
+/* footer */
+.wrapper>footer{}
