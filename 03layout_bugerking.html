@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 5px;
+            border: 1px solid;
+            box-sizing: border-box;
+        }
+        body{margin: 0;}
+        ul{margin: 0px; padding: 0; list-style: none;}
+        a{text-decoration: none; color: black;}
+
+        .wrapper{}
+        .wrapper>header{
+            height: 100px;
+
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+        }
+        .wrapper>header>.logo{
+            width: 200px;
+            height: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrapper>header>.logo>img{
+            width: 80%;
+            height: 80%;
+        }
+        .wrapper>header>.top-header{
+            /* display: flex; */
+        }
+        .wrapper>header>nav{
+            height: 100px;
+            display: flex;
+            align-items: center;
+            /* justify-content:center; */
+        }
+        .wrapper>header>nav>.menu{
+            border: 1px solid red;
+            display: flex;
+            width: 1100px;
+            /* 특정한 간격으로 띄우기 */
+            justify-content: space-between;
+            /* 
+                양 옆 여백 주기
+                justify-content:space-evenly;
+            */
+            align-items: center;
+            height: 75px;
+        }
+        .wrapper>header>nav>.menu:hover .submenu{
+            display: block;
+        }
+        .wrapper>header>nav>.menu>li{
+            width: 400px;
+            height: 50px;
+            line-height: 35px;
+            text-align: center;
+            border: 1px solid green;
+            font-size: 30px;
+            font-weight: bold;
+
+            /* !! */
+            position: relative;
+        }
+        .wrapper>header>nav>.menu>li>a{
+            display: block;
+        }
+        .wrapper>header>nav>.menu>li>.submenu{
+            background-color: white;
+
+            position: absolute;
+            left: 0;
+            top: 35px;
+            width: 100%;
+
+            display: none;
+        }
+        .wrapper>header>nav>.menu>li>.submenu>li{
+            height: 35px;
+            line-height: 35px;
+        }
+        .wrapper>header>nav>.menu>li>.submenu>li>a{}
+
+        
+
+        .wrapper>header>nav>.menu2{
+            display: flex;
+            width: 500px;
+            height: 50px;
+            justify-content:space-evenly;
+            text-align: center;
+            align-items: center;
+            
+        }
+        .wrapper>header>nav>.menu2>li{
+            
+            width: 400px;
+            height: 50px;
+            font-size: 30px;
+            
+        }
+
+
+        /* main */
+        .wrapper>main{}
+        .wrapper>main>.section1{
+            height: 500px;
+            justify-content: space-between;
+            align-items: center;
+            display: flex;
+        }
+        .wrapper>main>.section1>article{}
+        .wrapper>main>.section2{
+            height: 500px;
+            justify-content: space-between;
+            align-items: center;
+            display: flex;
+        }
+        .wrapper>main>.section2>article{}
+        .wrapper>main>.section3{
+            height: 500px;
+            justify-content: space-between;
+            align-items: center;
+            display: flex;
+        }
+        .wrapper>main>.section3>article{}
+        .wrapper>main>.section4{
+            height: 500px;
+            justify-content: space-between;
+            align-items: center;
+            display: flex;
+        }
+        .wrapper>main>.section4>article{
+            flex-grow: 4;
+            flex-shrink: 1;
+            flex-basis: 100%;
+            align-self: stretch;
+        }
+        .wrapper>main>.section5{
+            height: 500px;
+            justify-content: space-between;
+            align-items: center;
+            display: flex;
+        }
+        .wrapper>main>.section5>article{}
+
+
+
+        /* footer */
+        .wrapper>footer{
+            height: 1400px;
+        }
+        .wrapper>footer>.footer1{
+            height: 300px;
+        }
+        
+        .wrapper>footer>.footer2{
+            height: 700px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            /* background-color: #2b0200; */
+            
+            
+        }
+        .wrapper>footer>.footer2>li{
+            height: 300px;
+            
+        }
+        .wrapper>footer>.footer2>li>a{
+            font-size: 40px;
+            font-weight: bold;
+        }
+        .wrapper>footer>.footer2>li>.footermenu{
+            
+        }
+        .wrapper>footer>.footer2>li>.footermenu>li{}
+        .wrapper>footer>.footer2>li>.footermenu>li>a{
+            font-size: 20px;
+        }
+        .wrapper>footer>.footer3{
+            display: flex;
+            height: 300px;
+        }
+        .wrapper>footer>.footer3>article{
+            margin: 30px;
+            flex-grow: 4;
+            flex-shrink: 1;
+            flex-basis: 100%;
+            align-self: stretch;
+            width: 500px;
+        }
+        .wrapper>footer>.footer3>aside{
+            margin: 30px;
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 500px;
+            align-self: stretch;
+            width: 400px;
+            align-content: center;
+            
+        }
+        .wrapper>footer>.footer3>aside>ul{
+            display: flex;
+            justify-content: space-evenly;
+            
+        }
+        .wrapper>footer>.footer3>aside>ul>li{}
+        .wrapper>footer>.footer3>aside>ul>li::after{
+            content: '|';
+            position: absolute;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="logo">
+                <img src="" alt="LOGO">
+            </div>
+            <div class="top-header"></div>
+            <nav>
+                <ul class="menu">
+                    <li>
+                        <a href="MENU1">메뉴소개</a>
+                        <ul class="submenu">
+                            <li><a href="">스페셜&할인팩</a></li>
+                            <li><a href="">신제품(NEW)</a></li>
+                            <li><a href="">프리미엄</a></li>
+                            <li><a href="">와퍼&주니어</a></li>
+                            <li><a href="">치킨&슈림프버거</a></li>
+                            <li><a href="">올데이킹&킹모닝</a></li>
+                            <li><a href="">사이드</a></li>
+                            <li><a href="">음료&디저트</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="MENU1"> 매장소개</a>
+                        <ul class="submenu">
+                            <li><a href="">매장찾기</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="MENU1">이벤트</a>
+                        <ul class="submenu">
+                            <li><a href="">이벤트</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="MENU1">브랜드스토리</a>
+                        <ul class="submenu">
+                            <li><a href="">BRAND</a></li>
+                            <li><a href="">WHOPPER</a></li>
+                            <li><a href="">COMM.</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="menu2">
+                    <li><a href="">가맹점 문의</a></li>
+                    <li><a href="">딜리버리 주문</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section class="section1">
+                <article>ARTICLE</article>
+            </section>
+            <section class="section2">
+                <article>ARTICLE</article>
+            </section>
+            <section class="section3">
+                <article>ARTICLE</article>
+            </section>
+            <section class="section4">
+                <article>ARTICLE1</article>
+                <article>ARTICLE2</article>
+            </section>
+            <section class="section5">
+                <article>ARTICLE</article>
+            </section>
+        </main>
+        <footer>
+            <ul class="footer1"></ul>
+            <ul class="footer2">
+                <li>
+                    <a href="">메뉴소개</a>
+                    <ul class="footermenu">
+                        <li><a href="">스페셜&할인팩</a></li>
+                        <li><a href="">신제품(NEW)</a></li>
+                        <li><a href="">프리미엄</a></li>
+                        <li><a href="">와퍼&주니어</a></li>
+                        <li><a href="">치킨&슈림프버거</a></li>
+                        <li><a href="">올데이킹&킹모닝</a></li>
+                        <li><a href="">사이드</a></li>
+                        <li><a href="">음료&디저트</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href=""> 매장소개</a>
+                    <ul class="footermenu">
+                        <li><a href="">매장찾기</a></li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <a href="">이벤트</a>
+                    <ul class="footermenu">
+                        <li><a href="">이벤트</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">브랜드스토리</a>
+                    <ul class="footermenu">
+                        <li><a href="">BRAND</a></li>
+                        <li><a href="">WHOPPER</a></li>
+                        <li><a href="">COMM.</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="">고객센터</a>
+                    <ul class="footermenu">
+                        <li><a href="">공지사항</a></li>
+                        <li><a href="">버거킹앱이용안내</a></li>
+                        <li><a href="">FAQ</a></li>
+                        <li><a href="">문의</a></li>
+                        <li><a href="">가맹점모집</a></li>
+                        <li><a href="">인재채용</a></li>
+                    </ul>
+                </li>
+                <hr/>
+                
+            </ul>
+            <ul class="footer3">
+                <article>
+                    <li>BUGER KING</li>
+                    <li>서울 종로구 삼봉로 71 G 타워 4F,5F 주식회사 비케이알 | 전화주문 1599-0505</li>
+                    <li>사업자 등록번호 101-86-76277 | (주)BKR 대표이사 이동형</li>
+                    <li>Copyright 2019 BKR Co., Ltd. All right Reserved</li>
+                </article>
+                <aside>
+                    <ul>
+                        <li>이용약관</li>
+                        <li>개인정보처리방침</li>
+                        <li>법적고지</li>
+                    </ul>
+                </aside>
+            
+        </footer>
+    </div>
+</body>
+</html>
