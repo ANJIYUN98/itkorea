@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="alert('helloworld')">버튼01</button>
+    <button onclick="alert(10+20)">버튼02</button>
+    <button onclick="alert('helloworld\nhelloworld\nhelloworld')">버튼03</button>
+    <!-- '\n' 은 escape 문자로 enter역할함 -->
+
+    <hr>
+
+    <a href="javascript:alert('helloworld')">버튼01</a> 
+    <!-- 그냥 a태그 안에 alert하면 작동이 되지 않기 때문에 javascript : alert으로 해주면 된다. -->
+    <a href="javascript:void(0)">버튼02</a>
+    <!-- void(0)는 작업할 시 기본 설정이다. -->
+    <a href="javascript:console.log(obj)">버튼03</a>
+
+    <script>
+        const obj = {'name' : '홍길동', 'age' : '55'};
+        // jason단위의 object
+        
+    </script>
+
+    <hr>
+    <!-- THIS -->
+     <button onclick="console.log(this)">버튼01</button>
+     <a href="javascript:console.log(this)">버튼02</a>
+     <!-- window 객체 자체를 줌 -->
+     <a href="" onclick="console.log(this)">버튼03</a>
+     <!-- 새로고침 됨 -->
+     <a href="javascript:void(0)" onclick="console.log(this)">버튼04</a>
+     <!-- 이렇게 하면 버튼02와 똑같이 새로고침 되지않고 버튼에 대한 정보가 나오게 된다. -->
+</body>
+</html>
