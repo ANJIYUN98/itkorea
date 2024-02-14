@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="js/중구.js"></script>
+</head>
+<body>
+    
+    <script>
+        //전체 정보확인
+        // console.log(중구맛집);
+
+        //Data 배열만 추출
+        const 중구맛집_data = 중구맛집.data;
+        // console.log(중구맛집_data);
+
+
+        //FD_CS(음식카테고리) 가 '한식'인 맛집만 추출
+        const 중구한식식당 = 중구맛집_data.filter((item)=>item.FD_CS == "한식");
+        console.log(중구한식식당);
+
+        //index가 0인 식당 선택
+        const 장모님국밥 = 중구한식식당[0];
+        const 장모님국밥_MENU = 장모님국밥.MNU;
+        console.log(장모님국밥_MENU.split("<br />")); //split으로 br태그 잘라서 배열로 만들기
+
+        //모든 배열의 Object 항목중에 상호명(BZ_NM)과 메뉴(MNU)만 추출
+        const 중구한식식당_new = 중구한식식당.map((item)=>{
+            // {메뉴명:가격,} 으로 재배치 할 수도 있음 (아직 안함)
+            return {BZ_NM : item.BZ_NM, MNU : item.MNU.split("<br />")}
+        });
+        console.log(중구한식식당_new);
+
+    </script>
+</body>
+</html>

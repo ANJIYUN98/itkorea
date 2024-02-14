@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button onclick="poppi.sound()">짖어!</button>
+    <button onclick="poppi.toString()">정보확인</button>
+
+    <button onclick="myCar.accel()">가속</button>
+    <button onclick="myCar.break()">감속</button>
+    <button onclick="myCar.toString()">확인</button>
+    
+    <script>
+        //01
+
+        const poppi = {
+            //속성
+            name : "뽀삐",
+            kind : "포메라니안",
+            age : 1,
+
+            //기능
+            sound : function(){
+                console.log(this.name + "이(가) 왕왕 짖습니다");
+                alert(this.name + "이(가) 왕왕 짖습니다");
+            },
+            toString:function(){
+                console.log(poppi.name + "," + poppi.kind + "," + poppi.age);
+                alert(poppi.name + "," + poppi.kind + "," + poppi.age);
+            } // 1
+        }; //{}를 찍는 순간 객체(object)가 됨
+
+        // poppi.name="토리"; // 이렇게 이름 바꿀 수 있음
+        // console.log(typeof poppi);
+        // console.log(poppi.name + "," + poppi.kind + "," + poppi.age);
+        // poppi.sound();
+        // poppi.toString; //1
+
+        //02
+        const myCar = {
+            //속성
+            owner : "jy",
+            model : "G80",
+            fuelkind : "gasoline",
+            speed : 0,
+
+            //기능
+            accel : function(){
+                this.speed += 10;
+                if(this.speed > 200) {
+                    this.speed = 200;
+                    alert("최대속도를 초과!");
+                }
+                console.log(`현재속도 : ${this.speed}`);
+            },
+            break : function(){
+                this.speed -= 10;
+                if(this.speed<0)
+                    this.speed = 0;
+                console.log(`현재속도 : ${this.speed}`);
+            },
+            toString : function(){
+                console.log(this.owner + "," + this.model + ",", this.fuelkind + "," + this.speed);
+            }
+        };
+
+
+
+    </script>
+</body>
+</html>
