@@ -45,23 +45,23 @@ from view_current_lecture group by lec_name with rollup;
 
 
 -- 4
-create table tbl_errlog(error_code int, error_date datetime, error_msg text);
+drop table tbl_errlog;
+create table tbl_errlog( error_code int, error_date datetime, error_msg text);
 show errors;
 select * from tbl_errlog;
-
+delete from tbl_registration;
 select * from tbl_registration;
 
+drop procedure proc_insert_tbl_registration;
 
 delimiter $$
 create procedure proc_insert_tbl_registration(in sid varchar(45), in lcode int, lduration varchar(100))
-
 begin 
-	DECLARE error_code VARCHAR(5);
+	DECLARE error_code int;
     DECLARE error_message VARCHAR(255);
 	
     declare continue handler for 1062 
     begin
-		show errors;
 		get DIAGNOSTICS CONDITION 1
 			error_code = MYSQL_ERRNO,
             error_message = MESSAGE_TEXT;
@@ -72,7 +72,6 @@ begin
     
     declare continue handler for 1452
     begin
-		show errors;
 		get DIAGNOSTICS CONDITION 1
 			error_code = MYSQL_ERRNO,
             error_message = MESSAGE_TEXT;
@@ -81,10 +80,16 @@ begin
         
     end;
     
-    
+    INSERT INTO tbl_registration VALUES (sid, lcode, lduration);
 end $$
 delimiter ;
 
+delete from tbl_errlog;
+select * from tbl_errlog;
+delete from tbl_registration;
+select * from tbl_registration;
+select * from tbl_student;
+select * from tbl_lecture;
 call proc_insert_tbl_registration('20190001',1001, '2023-05-22 - 2023-06-21');
 call proc_insert_tbl_registration('20190001',1001, '2023-05-22 - 2023-06-21');
 call proc_insert_tbl_registration('20190001',7001, '2023-05-22 - 2023-06-21');
@@ -93,21 +98,112 @@ call proc_insert_tbl_registration('70190001',1001, '2023-05-22 - 2023-06-21');
 
 
 
+-- 5
+drop trigger tbl_student_update_trg;
+
+select * from tbl_student;
+delimiter $$
+create trigger tbl_student_update_trg
+after update
+on tbl_student
+for each row
+begin 
+	insert into tbl_student_bak values(
+    old.s_id, old.s_name, old.s_phone, current_timestamp(), null
+    );
+end $$
+delimiter ;
+
+show triggers;
+show create trigger tbl_student_update_trg;
+
+select * from tbl_student;
+select * from tbl_student_bak; 
+
+
+insert into tbl_student values('20191234','나나나','010-1234-1234');
+update tbl_student set s_name = '우우우' where s_id='20191234';
 
 
 
 
 
 
+-- 6
+drop trigger tbl_teacher_update_trg;
+select * from tbl_teacher;
+delimiter $$
+create trigger tbl_teacher_update_trg
+after update
+on tbl_teacher
+for each row
+begin 
+	insert into tbl_teacher_bak values(
+    old.t_id,old.t_name,old.t_phone,old.t_addr, current_timestamp(),null
+    );
+end $$
+delimiter ;
+
+show triggers;
+show create trigger tbl_teacher_update_trg;
+
+
+select * from tbl_teacher;
+select * from tbl_teacher_bak; 
+insert into tbl_teacher values(7,'아무개','010-222-333', '대구광역시 달서구');
+update tbl_teacher set t_name = '아무무' where t_id=7;
+update tbl_teacher set t_phone = '010-777-7777' where t_id=7;
 
 
 
+-- 7
+drop trigger tbl_student_delete_trg;
+
+select * from tbl_student;
+delimiter $$
+create trigger tbl_student_delete_trg
+after delete
+on tbl_student
+for each row
+begin 
+	insert into tbl_student_bak values(
+    old.s_id, old.s_name, old.s_phone, null, current_timestamp()
+    );
+end $$
+delimiter ;
+
+show triggers;
+show create trigger tbl_student_delete_trg;
+
+select * from tbl_student;
+select * from tbl_student_bak; 
+
+delete from tbl_student where s_id='20191234';
 
 
 
+-- 8
+drop trigger tbl_teacher_delete_trg;
+select * from tbl_teacher;
+delimiter $$
+create trigger tbl_teacher_delete_trg
+after delete
+on tbl_teacher
+for each row
+begin 
+	insert into tbl_teacher_bak values(
+    old.t_id,old.t_name,old.t_phone,old.t_addr, null, current_timestamp()
+    );
+end $$
+delimiter ;
 
+show triggers;
+show create trigger tbl_teacher_delete_trg;
 
+delete from tbl_teacher where t_id=7;
 
+select * from tbl_teacher;
+select * from tbl_teacher_bak; 
 
 
 
