@@ -34,6 +34,32 @@
         });
         console.log(중구한식식당_new);
 
+
+
+
+
+        
+        //고객 주문 리스트 저장
+        const 춘천옥  = 중구한식식당_new[1];
+        const order1=
+        [
+
+            {oid:"1111-1111",restorant:춘천옥.BZ_NM , menu:"곰탕/양곰탕",price:11000, amount:3,date:new Date()}, //idx 0
+            {oid:"1111-1112",restorant:춘천옥.BZ_NM , menu:"냉면",price:9000, amount:4,date:new Date()}, //idx 0
+            {oid:"1111-1113",restorant:춘천옥.BZ_NM , menu:"막국수",price:9000, amount:2,date:new Date()}, //idx 0
+          
+        ]
+        console.log("order1",order1);
+
+        //price*amount 의 누적합을 계산해서(REDUCE)
+        //{pid:"1111-2222",총액 : 10000 ,결제일시:new Date()} 형식의 Map으로 출력하세요
+
+        const resultVal = order1.map((item)=>{ return {price:item.price*item.amount} })
+                                .reduce((sum,item)=>{ return sum+item.price },0)
+        console.log(resultVal);
+        const pay_result = {pid:"1111-2222", totalPrice:resultVal, pay_date : new Date()}
+        console.log(pay_result);
+
     </script>
 </body>
 </html>
