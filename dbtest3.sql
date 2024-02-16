@@ -46,7 +46,7 @@ from view_current_lecture group by lec_name with rollup;
 
 -- 4 예외 프로시저
 drop table tbl_errlog;
-create table tbl_errlog( error_code int, error_date datetime, error_msg text);
+create table tbl_errlog(no int auto_increment primary key, error_code int, error_date datetime, error_msg text );
 show errors;
 select * from tbl_errlog;
 delete from tbl_registration;
@@ -55,7 +55,7 @@ select * from tbl_registration;
 drop procedure proc_insert_tbl_registration;
 
 delimiter $$
-create procedure proc_insert_tbl_registration(in sid varchar(45), in lcode int, lduration varchar(100))
+create procedure proc_insert_tbl_registration( in sid varchar(45), in lcode int, lduration varchar(100))
 begin 
 	DECLARE error_code int;
     DECLARE error_message VARCHAR(255);
@@ -66,7 +66,7 @@ begin
 			error_code = MYSQL_ERRNO,
             error_message = MESSAGE_TEXT;
 		
-        insert into tbl_errlog values(error_code,now(),error_message);
+        insert into tbl_errlog(error_code, error_date, error_msg) values(error_code,now(),error_message);
     end;
     
     
@@ -76,7 +76,7 @@ begin
 			error_code = MYSQL_ERRNO,
             error_message = MESSAGE_TEXT;
 		
-        insert into tbl_errlog values(error_code,now(),error_message);
+        insert into tbl_errlog (error_code, error_date, error_msg) values(error_code,now(),error_message);
         
     end;
     
@@ -84,8 +84,6 @@ begin
 end $$
 delimiter ;
 
-alter table tbl_errlog add column no int auto_increment primary key;
-alter table tbl_errlog modify column no int first;
 
 delete from tbl_errlog;
 select * from tbl_errlog;
