@@ -44,7 +44,7 @@ from view_current_lecture group by lec_name with rollup;
 
 
 
--- 4
+-- 4 예외 프로시저
 drop table tbl_errlog;
 create table tbl_errlog( error_code int, error_date datetime, error_msg text);
 show errors;
@@ -98,7 +98,9 @@ call proc_insert_tbl_registration('70190001',1001, '2023-05-22 - 2023-06-21');
 
 
 
--- 5
+
+
+-- 5 업데이트 트리거
 drop trigger tbl_student_update_trg;
 
 select * from tbl_student;
@@ -129,7 +131,7 @@ update tbl_student set s_name = '우우우' where s_id='20191234';
 
 
 
--- 6
+-- 6 업데이트 트리거
 drop trigger tbl_teacher_update_trg;
 select * from tbl_teacher;
 delimiter $$
@@ -156,7 +158,7 @@ update tbl_teacher set t_phone = '010-777-7777' where t_id=7;
 
 
 
--- 7
+-- 7 삭제 트리거
 drop trigger tbl_student_delete_trg;
 
 select * from tbl_student;
@@ -182,7 +184,7 @@ delete from tbl_student where s_id='20191234';
 
 
 
--- 8
+-- 8 삭제 트리거
 drop trigger tbl_teacher_delete_trg;
 select * from tbl_teacher;
 delimiter $$
@@ -204,6 +206,18 @@ delete from tbl_teacher where t_id=7;
 
 select * from tbl_teacher;
 select * from tbl_teacher_bak; 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
