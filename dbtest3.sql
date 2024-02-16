@@ -84,12 +84,14 @@ begin
 end $$
 delimiter ;
 
+alter table tbl_errlog add column no int auto_increment primary key;
+alter table tbl_errlog modify column no int first;
+
 delete from tbl_errlog;
 select * from tbl_errlog;
 delete from tbl_registration;
 select * from tbl_registration;
-select * from tbl_student;
-select * from tbl_lecture;
+
 call proc_insert_tbl_registration('20190001',1001, '2023-05-22 - 2023-06-21');
 call proc_insert_tbl_registration('20190001',1001, '2023-05-22 - 2023-06-21');
 call proc_insert_tbl_registration('20190001',7001, '2023-05-22 - 2023-06-21');
