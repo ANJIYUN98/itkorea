@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // //while 기본
+
+        // let i = 0; //탈출용 변수
+        // while(i<10) // 조건식
+        // {
+        //     document.write("HELLO WORLD<br>") // 조건없이 하면 무한루프의 문제가 생긴다.
+        //     i++;    //연산작업(탈출용)
+        // }
+        // document.write("i : "+ i);
+
+
+
+        // //for문 기본
+        // for(let i=0; i<10; i++){
+        //     document.write("HELLO WORLD<br>");
+        // }
+
+
+
+        //for in 문(object 포함)
+        let arr=[10,20,30,40,50]; //배열
+        console.log(arr.length);
+
+        console.log(arr[0]);
+        console.log(arr[1]);
+        console.log(arr[2]);
+        console.log(arr[3]);
+        console.log(arr[4]);// 이렇게도 확인 가능하지만 불편하기 때문에 반복문 사용
+
+        // for(let i=0; i<arr.length; i++)
+        // console,log(arr[i]);
+
+        // for(let i in arr){
+        //     console.log(arr[i]);
+        // }
+
+
+
+        // //배열 함수 forEach
+        // arr.forEach((item) =>{ console.log(item);});
+
+
+        
+         //for of 문(배열용)
+        const obj = {"name" : "홍길동", "age" : 55, "addr" : "대구"};
+        // for(let a in obj){
+        //     console.log(a, obj[a]);
+        // }
+
+        // for (let a of obj){
+        //     console.log(a);
+        // } 
+        // not iterable 오류 나옴 'of' 는 'in' 과는 다르게 반복처리 할 수 없기 때문
+
+        // in은 자체적으로 iterative value 반복자 값을 가지고 있음 
+        // of는 index가 없기때문에 값이 배열구조여야만 가능함
+        // for of 문은 배열형은 순서가 있기 때문에 반복처리가 가능하고 object는 순서가 없기 때문에 불가능함.
+        // form in 문은 배열형이든 object이든 다 반복처리 가능하다.
+
+
+        //for of 문으로  [{},{},{}] 사용해보기
+        const ArrObj = [
+            {"name" : "홍길동", "age" : 55, "addr" : "대구"},
+            {"name" : "서길동", "age" : 45, "addr" : "서울"},
+            {"name" : "남길동", "age" : 35, "addr" : "부산"}
+        ];
+        for(let obj of ArrObj){
+            console.log(obj);
+        }
+        // for in : 순서가 있는 자료구조에 적용 o (배열, 리스트, 스택, 큐, 덱....) 
+        //          순서가 없는 자료구조에 적용 o (Map(Object형 데이터 Set), Set)
+        // for of : 순서가 있는 자료구조에만 적용 (배열, 리스트, 스택, 큐, 덱....) 
+
+
+
+    </script>
+</body>
+</html>

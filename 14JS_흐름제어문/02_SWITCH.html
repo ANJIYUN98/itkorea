@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <div class="d1" style="width: 50px; height: 50px; background-color: orange; position: relative;">
+
+    </div>
+    <script>
+
+        // let num = prompt('점수를 입력해주세요.'); 
+        // // num = parseInt(num); 
+        // console.log(typeof num);
+
+        // if(num<70){
+            
+        //     alert("F");
+        // }else if (num<80){
+
+        //     alert("D");
+        // }else if (num<90){
+            
+        //     alert("C");
+        // }else if (num<100){
+           
+        //     alert("B");
+        // }else{
+            
+        //     alert("A");
+        // }
+
+
+
+        // let num = prompt('점수를 입력해주세요.'); 
+        // // num = parseInt(num); 
+        // console.log(typeof num);
+
+        // switch(num){
+        //     case 100 :
+        //         alert('A');
+        //         break;
+        //     case 90 :
+        //         alert('B');
+        //         break;
+        //     case 80 :
+        //         alert('C');
+        //         break;
+        //     case 70 :
+        //         alert('D');
+        //         break;
+        //     case 60 :
+        //         alert('F');
+        //         break;
+        // }
+
+        
+        let topval = 0;
+        let leftval = 0;
+        let rightval = 0;
+        let bottomval = 0;
+
+        document.addEventListener('keypress', function(e){
+            // console.log(e.keyCode);
+            const el = document.querySelector('.d1');
+
+            switch(e.keyCode){
+                case 119 :
+                    console.log('W');
+                    el.style.top = (topval--)+"px";
+                    break;
+                case 97 :
+                    console.log('A');
+                    el.style.left = (leftval--)+"px";
+                    break;
+                case 115 :
+                    el.style.top = (topval++)+"px";
+                    console.log('S');
+                    break;
+                case 100 :
+                    el.style.left = (leftval++)+"px";
+                    console.log('D');
+                    break;
+            }
+        });
+
+    </script>
+</body>
+</html>

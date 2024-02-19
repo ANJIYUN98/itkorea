@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 호이스팅(끌어올린다)
+        // 코드가 실행되기 전 변수선언 / 함수선언이 해당 스코프의 최상단으로 끌어 올려진 것 같은 현상
+
+        // 호이스팅 처리(function-)
+        f1(); // 끌어올려지기 때문에 위에 써도 상관 없음
+        function f1(){
+            console.log("HELLO WORLD");
+        }
+
+        // 호이스팅 처리 안되도록
+        f2();
+        const f2 = ()=>{
+            console.log("HELLO WORLD");
+        };
+    </script>
+</body>
+</html>
