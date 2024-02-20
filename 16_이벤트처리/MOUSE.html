@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div{
+            width: 100px; height: 100px;
+            border: 1px solid; margin: 50px;
+        }
+        #d3{
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1"></div><br>
+    <a href="javascript:void(0)" id="a1">TEST1</a><br>
+    <!-- 순서가 있기때문에 확인해서 네이버페이지로 넘어가면 새로고침됨. 
+    그래서 javascript:void(0)으로 막아놓으면 된다. -->
+    <button id="btn1" onclick="alert('btn clicked inline attr..')">TEST2</button><br>
+    
+    <form name="frm" action="test.jsp" onsubmit="return false">
+        <input type="text" name="username"><br>
+        <input type="text" name="password"><br>
+        <input type="text" name="email"><br>
+        <button>이메일 인증</button>
+        <!-- 버전이 올라가면서 button태그로만 해도 input을 사용하지 않고 페이지 이동이 가능하다 -->
+        <a id="submit_btn" href="javascript:void(0)">버튼</a>
+        <!-- a 태그로 이동 안됨 -->
+        <input type="submit" value="BTN01" />
+        <input type="button" value="BTN02">
+        <!-- input button으로 페이지 이동 안됨 -->
+
+    </form>
+    <hr>
+    <div id="d2"></div>
+    <hr>
+    <div id="d3"></div>
+
+
+    <script>
+        // Click Event
+        const d1tg = document.getElementById('d1');
+        let d1Cnt=0;
+        d1tg.addEventListener('click', function(){
+            d1tg.innerHTML=`<h4>Clicked...${++d1Cnt}</h4>`;
+        });
+        const a1tg = document.getElementById('a1');
+        a1tg.addEventListener('click', function(){
+            alert("ATAG CLICKED...");
+        })
+
+        const btn1tg = document.getElementById('btn1');
+        btn1tg.addEventListener('click', function(){
+            alert("btn clicked..");
+        })
+
+        const submitBtnEl=document.getElementById('submit_btn');
+        submitBtnEl.addEventListener('click', function(){
+            const form = document.frm;
+            //유효성체크 구간(생략)
+            alert(form.username.value);
+            alert(form.password.value);
+            alert(form.email.value);
+
+            //전송
+            form.submit();
+        });
+
+
+        // mouseover / mouseleave
+        const d2tg = document.getElementById('d2');
+        d2tg.innerHTML="INIT"; //초기값
+
+        d2tg.addEventListener('click', function(){
+            d2tg.innerHTML="CLICKED..";
+        })
+        d2tg.addEventListener('mouseover', function(){
+            d2tg.innerHTML="OVER..";
+        })
+        d2tg.addEventListener('mouseleave', function(){
+            d2tg.innerHTML="LEAVE..";
+        })
+
+        // drag, dragover, dragstart. dragend, drop
+        const d3tg = document.getElementById('d3');
+        d3tg.addEventListener('dragover',function(event){
+            console.log("dragover!!", event);
+            event.preventDefault(); //기본 기능 없애기
+        }) //'event' 객체에 받음
+        d3tg.addEventListener('drop', function(event){
+            console.log("drop...!", event); //드랍하면 다운로드 됨
+            console.log("drop...!", event.dataTransfer.files);
+            const files= event.dataTransfer.files;
+
+
+            for(i=0; i<files.length; i++){
+                // console.log(files[i]);
+                if(files[i].type.startsWith("image/")){
+                    console.log(files[i]);
+                    const imgtg = document.createElement('img'); //생성
+                    imgtg.src=URL.createObjectURL(files[i]);     //src경로 설정
+                    imgtg.setAttribute("style", "width:200px; height:200px") // 기본 스타일 지정
+                    d3tg.appendChild(imgtg);                     // d3tg연결
+                }//묶음 파일이 있을때 이미지만 빼내는 것
+            } // 이미지 파일 올렸을 때 정보 확인
+
+            event.preventDefault(); // 기본 기능 없앴기 때문에 다운로드 안됨
+        }) 
+        
+        
+        //
+
+
+    </script>
+</body>
+</html>
