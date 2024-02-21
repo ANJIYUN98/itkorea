@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            height: 8000px;
+            width: 800px;
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        document.addEventListener('scroll',function(){
+            // console.log('scroll...');
+            // window.scrollX
+            //- 현재 문서의 수평 스크롤 위치
+            //- 뷰포트에서 가장 왼쪽 부분의 가로축 위치를 기준
+            //- 스크롤이 오른쪽으로 이동할수록 값 증가
+-
+            // window.scrollY
+            //- 현재 문서의 수직 스크롤 위치
+            //- 뷰포트에서 가장 위쪽 부분의 세로축 위치를 기준
+            //- 스크롤이 아래쪽으로 이동할수록 값 증가
+
+            // console.log('window.ScrollX :', window.scrollX);
+            // console.log('window.ScrollY :', window.scrollY);
+
+            // console.log('Window.scrollY',window.scrollY);
+            // console.log('DDM.scrollTop',document.documentElement.scrollTop);
+            console.log('scrollHeight',document.documentElement.scrollHeight);
+        });
+    </script>
+    
+</body>
+</html>
