@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul>
+        <li>ITEM1</li>
+        <li id="li2">ITEM2</li>
+        <li class="item">ITEM3</li>
+        <li>ITEM4</li>
+        <li class="item">ITEM5</li>
+        <li>ITEM6</li>
+        <li class="item">ITEM7</li>
+    </ul>
+
+    <script>
+        //document로 요소 찾기 
+        // .getElement 는 하나의 요소 찾고 .getElements는 여러 요소 찾음
+
+        //getElementById('id')
+        const li2 = document.getElementById('li2');
+        li2.style.backgroundColor = 'orange';
+
+        //querySelector('selector')
+        const SEl = document.querySelector('.item');
+        SEl.style.backgroundColor="green";
+
+        //querySelectorAll
+        const SEls = document.querySelectorAll('.item');
+        console.log(SEls);
+        //배열이기 때문에 forEach 사용할 수 있음
+        SEls.forEach(item=>{
+            item.style.color="blue";
+        })
+
+         const liEls = document.getElementsByTagName('li')
+        // console.log(liEls);
+        // for(item of liEls){
+        //     console.log(item);
+        //     item.style.width="200px";
+        // }
+
+
+        //Array.from() - 배열함수 사용형태로 변환
+        Array.from(liEls).forEach(item=>{
+            console.log(liEls);
+            item.style.fontweight="800";
+            item.addEventListener('click', function(){
+                alert('clicked..contents : '+item.innerHTML)
+            })
+        })
+
+    </script>
+
+</body>
+</html>
