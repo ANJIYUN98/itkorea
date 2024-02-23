@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 동기 : 한번에 하나의 작업만 할 수 있도록 약속(요청했을 때 응답이 와야 다른 작업 할 수 있는 것)하는 것
+         비동기 : 약속을 깨고 원하는 시점에서 작업하는 것 -->
+    
+        <button onclick="startReservation()">예약실행</button> 
+        | 
+        <button onclick="cancelReservation1()">예약취소1</button>
+        |
+        <button onclick="cancelReservation2()">예약취소2</button>
+    <hr>
+    <div class="d1"></div>
+
+    <script>
+
+        //스레드  : 작업 실행 단위(실행 흐름 단위)
+        //동기    : 미리 정해놓은 약속대로 처리하는 작업, 안정적 (절차흐름대로 처리 - 단일 스래드 단위)
+        //비동기  : 정해진 약속대로 처리하는 것이 아니라 필요한 상황에 따라 다르게 처리(실행흐름분리 - 스레드를 따로 형성)
+
+        //비동기 처리함수
+        //setTimeout(()=>{},millisecond) : 일정시간 이후 특정작업을 1회 수행 - 비동기 처리
+        //clearTimeout(id)              : 예약된 작업을 취소
+
+        let val1=null;
+        let val2=null;
+        function startReservation(){
+
+            console.log('sr-process1'); // 이것만 쓰면 동기('확인'해야 다음으로 넘어감)
+            val1 = setTimeout(()=>{
+                console.log('sr-process2'); 
+            },5000) // 비동기 적용
+
+            startReservation2();
+            
+            console.log('sr-process3'); 
+        };
+
+        function startReservation2(){
+            console.log("sr2-process1"); 
+            val2=setTimeout(()=>{
+                console.log("sr2-process2");
+            },3000)
+            console.log("sr2-process3");
+        }
+
+        function cancelReservation1(){
+            console.log("val1 ", val1);
+            clearTimeout(val1);
+            
+        }
+        function cancelReservation2(){
+            console.log("val2 ",val2); 
+            clearTimeout(val2);
+        }
+
+    </script>
+
+    
+</body>
+</html>

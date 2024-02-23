@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .boxes{
+            display:flex;
+            justify-content: center;
+        }
+        .box1{width: 300px; height: 80vh; overflow: auto; border: 1px solid; margin: 10px;}
+        .box2{width: 300px; height: 80vh; overflow: auto; border: 1px solid; margin: 10px;}
+        .box3{width: 300px; height: 80vh; overflow: auto; border: 1px solid; margin: 10px;}
+    </style>
+</head>
+<body>
+    
+    <div class="boxes">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+
+    <script>
+        const box1El = document.querySelector('.box1');
+        const box2El = document.querySelector('.box2');
+        const box3El = document.querySelector('.box3');
+
+        //MAIN PROCESS INTERVAL
+        setInterval(()=>{
+            box1El.innerHTML+="MAIN PROCESS...EXECUTED...<br>"
+        },1000);
+
+        //SUB PROCESS FUNCTINO
+        function subProcessExec(val){
+            return new Promise((resolve,reject)=>{
+                try{
+                    setTimeout(()=>{
+                        resolve(val);
+                    },3000);
+                    // throw "Exception..."; //억지로 예외 만들기
+                }catch(e){
+                    reject(e);
+                }//예외처리
+            })
+        }
+
+        // subProcessExec(1) //promise가 리턴
+        // .then((result)=>{
+        //     console.log('작업성공...',result);
+        //     box2El.innerHTML+="예약 프로세스 " +result+" 실행완료!";
+        // }) //수행 성공 시
+        // .catch((error)=>{
+        //     console.log('작업실패...',error);
+        // }) //수행 실패 시
+
+        // subProcessExec(2) //promise가 리턴
+        // .then((result)=>{
+        //     console.log('작업성공...',result);
+        //     box3El.innerHTML+="예약 프로세스 " +result+" 실행완료!";
+        // }) //수행 성공 시
+        // .catch((error)=>{
+        //     console.log('작업실패...',error);
+        // }) //수행 실패 시
+
+
+        //await / async
+        async function process01(){
+
+            subProcessExec(3) //promise가 리턴
+            .then((result)=>{
+                console.log('작업성공...',result);
+                box2El.innerHTML+="예약 프로세스 " +result+" 실행완료! <br>";
+            }) //수행 성공 시
+            .catch((error)=>{
+                console.log('작업실패...',error);
+            }) //수행 실패 시
+
+            await subProcessExec(1) //promise가 리턴
+            .then((result)=>{
+                console.log('작업성공...',result);
+                box2El.innerHTML+="await 예약 프로세스 " +result+" 실행완료! <br>";
+            }) //수행 성공 시
+            .catch((error)=>{
+                console.log('작업실패...',error);
+            }) //수행 실패 시
+
+            await subProcessExec(2) //promise가 리턴
+            .then((result)=>{
+                console.log('작업성공...',result);
+                box3El.innerHTML+="await 예약 프로세스 " +result+" 실행완료! <br>";
+            }) //수행 성공 시
+            .catch((error)=>{
+                console.log('작업실패...',error);
+            }) //수행 실패 시
+
+            
+
+        }
+        process01();
+        // await는 위에것 처리하고 밑에것 처리함
+
+    </script>
+
+</body>
+</html>
