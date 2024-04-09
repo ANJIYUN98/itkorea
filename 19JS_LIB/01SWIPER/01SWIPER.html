@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Google Icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        </style>
+
+
+    <!-- SWIPER CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .wrapper{}
+        .wrapper>header{
+            height: 100px;
+            border: 1px solid;
+        }
+        .wrapper>main{}
+
+        .wrapper>main>section.banner-section{
+            height: 600px;
+            border: 1px solid;
+            padding: 15px;
+        }
+        .wrapper>main>section.banner-section>.swiper{
+            border: 1px solid;
+            height: 100%;
+        }
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper{}
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper>.swiper-slide{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper>.swiper-slide>a{
+            height: 100%;
+            width: 100%;
+            display: block;
+        }
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper>.swiper-slide>a:nth-child(1){
+            background: url('images/banner1.jpg');
+        }
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper>.swiper-slide>a:nth-child(2){}
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper>.swiper-slide>a:nth-child(3){}
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper>.swiper-slide>a:nth-child(4){}
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper>.swiper-slide>a>img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .wrapper>main>section.banner-section .swiper-pagination-bullet{
+            width: 15px;
+            height: 15px;
+            background-color: red;
+        }
+        .wrapper>main>section.banner-section .swiper-button-next::after,
+        .wrapper>main>section.banner-section .swiper-button-prev::after{
+            content:'';
+        }
+
+        .wrapper>main>section.banner-section .material-symbols-outlined{
+            font-size: 7rem;
+            color: lightgray;
+            opacity: .6;
+        }
+        .wrapper>main>section.banner-section .material-symbols-outlined:hover{
+            opacity: 1;
+        }
+
+        .wrapper>main>section.banner-section .swiper-button-next{}
+        .wrapper>main>section.banner-section .swiper-button-prev{}
+    
+    </style>
+
+</head>
+<body>
+
+
+    <div class="wrapper">
+        <header>
+            <div class="top-header"></div>
+            <nav></nav>
+        </header>
+        <main>
+            <section class="banner-section">
+
+                <!-- Slider main container -->
+                <div class="swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                    <!-- Slides -->
+                        <div class="swiper-slide">
+                            <a href="javascript:void(0)"><img src="images/banner1.jpg" alt=""></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:void(0)"><img src="images/banner2.jpg" alt=""></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:void(0)"><img src="images/banner3.jpg" alt=""></a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="javascript:void(0)"><img src="images/banner4.jpg" alt=""></a>
+                        </div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </div>
+                    
+                    <div class="swiper-button-next">
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </div>
+                    
+
+                    <!-- If we need scrollbar -->
+                    <div class="swiper-scrollbar"></div>
+                </div>
+            </section>
+            <section></section>
+            <section></section>
+        </main>
+        <footer></footer>
+    </div>
+
+    <script>
+        //banner용
+
+        // const swiper_banner = new Swiper('selector',{key:value,}); 형식으로 입력해준다.
+        const swiper_banner = new Swiper('.wrapper>main>section.banner-section>.swiper',{
+            direction : 'horizontal',
+            autoplay : {
+                delay : 2000, //2초동안 딜레이
+                pauseOnMouseEnter : true, //마우스 갖다대면 정지
+            },
+            loop : true,
+            pagination : {
+                el : '.swiper-pagination',  //클래스 이름
+                clickable : 'true',         //클릭가능여부
+                type : 'bullets',           //bullets,progressbar,fraction..
+            },
+            navigation : {
+                nextEl : '.swiper-button-next',
+                prevEl : '.swiper-button-prev',
+            },
+            mousewheel : true,
+            effect : 'fade', //화면전환이 사라졌다 나타나도록
+        });
+    </script>
+
+</body>
+</html>

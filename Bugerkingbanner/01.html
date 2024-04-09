@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- SWIPER CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- LODASH CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            height: 5000px;
+        }
+        .wrapper{}
+        .wrapper>header{
+            height: 100px;
+            border: 1px solid;
+        }
+        .wrapper>header>.top-header{}
+        .wrapper>header>nav{}
+
+        .wrapper>main{}
+        .wrapper>main>section.banner-section{
+            height: 320px;
+            border: 1px solid;
+            padding: 15px;
+        }
+        .wrapper>main>section.banner-section>.swiper{
+            border: 1px solid;
+            height: 100%;
+        }
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper{}
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper>.swiper-slide{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper>.swiper-slide>a{
+            height: 100%;
+            width: 100%;
+            display: block;
+        }
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper>.swiper-slide>a:nth-child(1){}
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper>.swiper-slide>a:nth-child(2){}
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper>.swiper-slide>a:nth-child(3){}
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper>.swiper-slide>a:nth-child(4){}
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper>.swiper-slide>a:nth-child(5){}
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper>.swiper-slide>a:nth-child(6){}
+
+        .wrapper>main>section.banner-section>.swiper>.swiper-wrapper>.swiper-slide>a>img{
+            max-width: 100%;
+            height: auto;
+            vertical-align: top;
+        }
+        .wrapper>main>section.banner-section .swiper-pagination-bullet{
+            background-color: red;
+        }
+        .wrapper>main>section.banner-section .swiper-button-next::after{
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAASCAYAAABvqT8MAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OEI0MzE3QjkwRkZCMTFFOTgxOTNCRjlDNEJDRTEzRTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OEI0MzE3QkEwRkZCMTFFOTgxOTNCRjlDNEJDRTEzRTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4QjQzMTdCNzBGRkIxMUU5ODE5M0JGOUM0QkNFMTNFNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4QjQzMTdCODBGRkIxMUU5ODE5M0JGOUM0QkNFMTNFNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Ptn8pZ0AAACwSURBVHjaYmCAgHAgfgfEC4GYlYEAiAXiP0D8H4rXAzEbPg0fkRTD8BYgZseloQeLBhDeAcRc2DQwAnE/Dk17cWkCgQ4cmg4BMS8uTc04NB0DYn5cmqpxaDoFxIK4NJXisokJh4Z/UAXogAWb4gocpp8FYmF0xXU4FJ8AYgF0xS04FB/BFkJdOBQfAGIeYhXvwRXLb7Eo3g7EnLjCPAoteW8mlLxBIBSagZYSUgwQYAAdel6g/Kur2gAAAABJRU5ErkJggg==) no-repeat 50%;
+        }
+        .wrapper>main>section.banner-section .swiper-button-prev::after{
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAASCAYAAACAa1QyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6ODAxMzg1QzMwRkZCMTFFOTkxRTg5NUQ3MEIwQUQ4M0YiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6ODAxMzg1QzQwRkZCMTFFOTkxRTg5NUQ3MEIwQUQ4M0YiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4MDEzODVDMTBGRkIxMUU5OTFFODk1RDcwQjBBRDgzRiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4MDEzODVDMjBGRkIxMUU5OTFFODk1RDcwQjBBRDgzRiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsYoigoAAADKSURBVHjalNM9CsJAEIbhVTsbD2AhivgDFpEIQYgsFh7S03gKrUUJ+IMxRsVO/RYmsCwzGx14muDLmiGrVPl0YANraP/we9WDPXzIDro1TzCEFTStZw2oS8EIjtYJhRdoLhjDmQmesOCCCaRMcJdOmELGBDeIuWAGORNcIeKCPjyY4AIhF1ShQtx5E3G0cFpKyxEnppd2w4yWJE4kbDCnZYkT0hLc0Pz9uS8M4CR8FdoXmu/vwITLsqsxgMQKtv/cqeIStsyDrwADAGivWhMCwURPAAAAAElFTkSuQmCC) no-repeat 50%;
+        }
+
+
+
+        .bedge{
+            width: 52px;
+            height: 52px;
+            background-color: black;
+            z-index: 5;
+            position: fixed;
+            right: 20px;
+            bottom: 316px;
+            opacity: 1;
+            display: inline;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6N0I4QzAzREIwNDAxMTFFOUE0MDdBMEFDMTgwQUMzQkYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6N0I4QzAzREMwNDAxMTFFOUE0MDdBMEFDMTgwQUMzQkYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo3QjhDMDNEOTA0MDExMUU5QTQwN0EwQUMxODBBQzNCRiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo3QjhDMDNEQTA0MDExMUU5QTQwN0EwQUMxODBBQzNCRiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PlTsO6oAAAH0SURBVHja7Ni7a8JAGABwk/iIUq2hPhB8gEMCIinooKOT/hHu/Qvc3EQnNwURwdegzo6Cm4OggtDBtVaqFkHEPhB8JM0VIrb0MdQh2u+m47u7cL983yUhGMuyPdkZNVx2Zg1AAAIQgAAEIAABCEAAAhCAAAQgAJ0HiKIoolarMZVKhUb9kwYZjUZ5oVCgXS7Xhdvt1qK+wWCQnyTIYrEoSqUS43Q6NWIM9VEMjZ0UyG63K4vFImO1WsnPYzabjRTGaDTnJEBCFlRCaaEsqH7IHpnP51H2VJIGMQxDIoxwdj7cfSEjk3K5PDmMmUwmJZqL1hxzD4TZbL45xoVYllVns1lGr9fvzwfP87JcLveQTqcf2+32C0EQnMfj0WEY9j6uVquJYDBI9Xq9p9lstpUMyOv1ajKZDK3VauWHmFQqNRJAMzHW7XZf1+v11ufzXYookiSJUChE9fv95+l0uvnrXrBj/KxvtVrXOp1uj+E4jk8mk/fVanX+1fxwOHwViUQcOI5jYmyxWGwCgcCtJM6QUDJLsb/b7fh4PD78DoOa8JKdJxKJIYKLsU6ns5RMyTWbzaXD4VCgJ1ssFrur1+uL39YMBoPVeDxe+f3+y0ajMY9GoyNUppIoOfg4BRCAAAQgAAEIQAACEIAABCAAAejfgd4EGAB/uqYLCK8NGwAAAABJRU5ErkJggg==) no-repeat 0 0;
+        }
+        .hide{
+            opacity: 0;
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="top-header"></div>
+            <nav></nav>
+        </header>
+        <main>
+            <section class="banner-section">
+                <!-- Slider main container -->
+                <div class="swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide"><a href="javascript:void(0)"><img src="images/banner1.png" alt=""></a></div>
+                        <div class="swiper-slide"><a href="javascript:void(0)"><img src="images/banner2.png" alt=""></a></div>
+                        <div class="swiper-slide"><a href="javascript:void(0)"><img src="images/banner3.jpg" alt=""></a></div>
+                        <div class="swiper-slide"><a href="javascript:void(0)"><img src="images/banner4.png" alt=""></a></div>
+                        <div class="swiper-slide"><a href="javascript:void(0)"><img src="images/banner5.jpg" alt=""></a></div>
+                        <div class="swiper-slide"><a href="javascript:void(0)"><img src="images/banner6.jpg" alt=""></a></div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+                
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                
+                    <!-- If we need scrollbar -->
+                    <div class="swiper-scrollbar"></div>
+                </div>
+            </section>
+            <section class="LODASH">
+                <div class="bedge"></div>
+            </section>
+            <section></section>
+        </main>
+    </div>
+
+    <script>
+        const swiper_banner = new Swiper('.wrapper>main>section.banner-section>.swiper',{
+            direction : 'horizontal',
+            autoplay : {
+                delay : 4000,
+                pauseOnMouseEnter : false,
+            },
+            loop : true,
+            pagination : {
+                el : '.swiper-pagination',
+                clickable : 'true',
+                type : 'bullets',
+            },
+            navigation : {
+                nextEl : '.swiper-button-next',
+                prevEl : '.swiper-button-prev',
+            }
+        })
+
+        const bedge = document.querySelector('.bedge');
+        window.addEventListener('scroll',_.throttle(function(){
+            console.log("Y position : " + window.scrollY);
+            if(window.scrollY<1000){
+                bedge.classList.add('hide');
+            }else{
+                bedge.classList.remove('hide');
+            }
+        },500));
+    </script>
+</body>
+</html>

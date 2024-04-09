@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- LODASH CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        body{
+            height: 5000px;
+        }
+
+        .bedge{
+            width: 100px;
+            height: 200px;
+            background-color: skyblue;
+            border-radius: 15px;
+            z-index: 5;
+            position: fixed;
+            right: 20px;
+            top: 200px;
+            opacity: 1;
+            transition: .3s;
+        }
+        .hide{
+            opacity: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <section>
+        <div class="bedge">
+
+        </div>
+    </section>
+
+    <script>
+        const bedge = document.querySelector('.bedge');
+
+        // window.addEventListener('scroll', _.throttle(함수, 주기));
+        window.addEventListener('scroll', _.throttle(function(){
+            console.log("Y position : " + window.scrollY);
+            if(window.scrollY > 3000){
+                bedge.classList.add('hide');
+            }else{
+                bedge.classList.remove('hide');
+            }
+        }, 300));
+        
+    </script>
+    
+</body>
+</html>
