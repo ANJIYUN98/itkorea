@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+     <!-- chart.js -->
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 포항맛집.js -->
+    <script src="js/포항맛집.js"></script>
+    
+</head>
+<body>
+    
+    <div style="width:500px; height:500px; border:1px solid; padding:15px; margin:10px auto; color: rgb(216, 216, 216)">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        //DataArray 추출
+        console.log(포항맛집);
+
+        //'분류' 만 가져오기
+        const result = 포항맛집.map(item=>{
+            const {분류} = item; 
+            return {분류};
+        })
+        .reduce((acc,item)=>{
+            var values = Object.values(item);
+            //let sum =0;
+
+            // values.map(num => num);
+            //console.log("sum : " + sum);
+
+            if(acc.hasOwnProperty(item.분류)){
+                acc[item.분류] += 1;
+            }else{
+                acc[item.분류] = 1;
+            }
+            return acc;
+
+        },{})
+        console.log(result);
+        const keys = Object.keys(result);
+        const values = Object.values(result);
+
+        const 분류Chart = (keys,values) =>{
+            //차트 데이터
+            var data = {
+                labels : keys,
+                datasets : [{
+                    label : 'TEST_LABLE',
+                    data : values,
+                    backgroundColor : [
+                        'rgba(255,192,203,0.5)',
+                        'rgba(255,217,147,0.5)',
+                        'rgba(255,255,171,0.5)',
+                        'rgba(144,238,144,0.5)',
+                        'rgba(135,206,235,0.5)',
+                        'rgba(126,126,255,0.5)',
+                        'rgba(194,118,194,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)'
+                        
+                    ],
+                    borderColor : [
+                        'rgba(255,192,203,0.5)',
+                        'rgba(255,217,147,0.5)',
+                        'rgba(255,255,171,0.5)',
+                        'rgba(144,238,144,0.5)',
+                        'rgba(135,206,235,0.5)',
+                        'rgba(126,126,255,0.5)',
+                        'rgba(194,118,194,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)'
+                        
+                    ],
+                    borderWidth : 1,
+                }]
+            }
+
+            //차트 옵션(범례, x/y축, animation, layout, plugin..)
+            var options = {
+                scales : {
+                    y : {
+                        beginAtZero : true,
+                    }
+                }
+            }
+
+            //캔버스 요소 선택
+            var ctx = document.querySelector('#myChart').getContext('2d');
+
+            //차트 객체생성
+            var myChart = new Chart(ctx,{
+                type : 'pie', //line, pie, doughnut, bubble, scatter, heatmap...
+                data : data,
+                options : options
+            })
+
+        }
+        분류Chart(keys, values);
+        
+
+    </script>
+    
+</body>
+</html>

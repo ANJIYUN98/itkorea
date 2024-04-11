@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- gsap cdn -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        div{
+            width: 50px;
+            height: 50px;
+            border: 1px solid;
+            margin: 15px;
+        }
+        .box1{
+            background-color: skyblue;
+        }
+        .box2{
+            background-color: lightgreen;
+        }
+        .box3{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+
+    <script>
+        //
+        gsap.to('.box1',{duration:3,x:300,opacity:.5,ease:'ease-in',delay:2,});
+        gsap.to('.box2',{duration:3,x:700,opacity:.5,ease:'ease-in',delay:2,rotate:360});
+        gsap.from('.box3',{duration:3,x:900,ease:'linear',delay:2});
+        gsap.fromTo('.box4',{x:500,backgroundColor:'orange'},{duration:3,x:0})
+    </script>
+
+</body>
+</html>

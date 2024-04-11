@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    
+    <div style="width:500px; height:500px; border:1px solid; padding:15px;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        //차트 데이터
+        var data = {
+            labels : ['RED','ORANGE','YELLOW','GREEN','BLUE','PURPLE'],
+            datasets : [{
+                label : 'TEST_LABEL',
+                data : [10,55,40,30,22,60],
+                backgroundColor : [
+                    'rgba(255,192,203,0.5)',
+                    'rgba(255,217,147,0.5)',
+                    'rgba(255,255,171,0.5)',
+                    'rgba(144,238,144,0.5)',
+                    'rgba(135,206,235,0.5)',
+                    'rgba(194,118,194,0.5)',
+                ],
+                borderColor : [
+                    'rgba(100,100,100,0.5)',
+                    'rgba(50,50,50,0.5)',
+                    'rgba(200,200,200,0.5)',
+                    'rgba(150,150,150,0.5)',
+                    'rgba(30,30,30,0.5)',
+                    'rgba(220,220,220,0.5)',
+                ],
+                borderWidth : 1,
+            }]
+        }
+
+        //차트 옵션(범례, x/y축, animation, layout, plugin..)
+        var options = {
+            scales : {
+                y : {
+                    beginAtZero : true,
+                }
+            }
+        }
+
+        //캔버스 요소 선택
+        var ctx = document.querySelector('#myChart').getContext('2d');
+
+        //차트 객체생성
+        var myChart = new Chart(ctx,{
+            type : 'pie', //line, pie, doughnut, bubble, scatter, heatmap...
+            data : data,
+            options : options
+        })
+
+    </script>
+
+</body>
+</html>

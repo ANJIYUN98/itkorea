@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+     <!-- chart.js -->
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 포항맛집.js -->
+    <script src="js/경찰청지역별범죄발생건수.js"></script>
+    
+</head>
+<body>
+    
+    <div style="width:500px; height:500px; border:1px solid; padding:15px; margin:10px auto; color: rgb(216, 216, 216)">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        //DataArray 추출
+        console.log(지역별범죄건수);
+
+        //'분류' 만 가져오기
+        const result = 지역별범죄건수.map(item=>{
+            const {범죄대분류, 범죄중분류, ...rest} = item; 
+            return {범죄대분류, rest};
+        })
+        .reduce((acc,item)=>{
+            var values = Object.values(item.rest);
+            let sum =0;
+
+            values.map(num => sum += num);
+            console.log("sum : " + sum);
+
+            if(acc.hasOwnProperty(item.범죄대분류)){
+                acc[item.범죄대분류] += sum;
+            }else{
+                acc[item.범죄대분류] = sum;
+            }
+            return acc;
+
+        },{})
+        console.log(result);
+        const keys = Object.keys(result);
+        const values = Object.values(result);
+
+        const 범죄대분류Chart = (keys,values) =>{
+            //차트 데이터
+            var data = {
+                labels : keys,
+                datasets : [{
+                    label : 'TEST_LABLE',
+                    data : values,
+                    backgroundColor : [
+                        'rgba(255,192,203,0.5)',
+                        'rgba(255,217,147,0.5)',
+                        'rgba(255,255,171,0.5)',
+                        'rgba(144,238,144,0.5)',
+                        'rgba(135,206,235,0.5)',
+                        'rgba(126,126,255,0.5)',
+                        'rgba(194,118,194,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                    ],
+                    borderColor : [
+                        'rgba(255,192,203,0.5)',
+                        'rgba(255,217,147,0.5)',
+                        'rgba(255,255,171,0.5)',
+                        'rgba(144,238,144,0.5)',
+                        'rgba(135,206,235,0.5)',
+                        'rgba(126,126,255,0.5)',
+                        'rgba(194,118,194,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                        'rgba(216,216,216,0.5)',
+                    ],
+                    borderWidth : 1,
+                }]
+            }
+
+            //차트 옵션(범례, x/y축, animation, layout, plugin..)
+            var options = {
+                scales : {
+                    y : {
+                        beginAtZero : true,
+                    }
+                }
+            }
+
+            //캔버스 요소 선택
+            var ctx = document.querySelector('#myChart').getContext('2d');
+
+            //차트 객체생성
+            var myChart = new Chart(ctx,{
+                type : 'pie', //line, pie, doughnut, bubble, scatter, heatmap...
+                data : data,
+                options : options
+            })
+
+        }
+        범죄대분류Chart(keys, values);
+        
+
+    </script>
+    
+</body>
+</html>

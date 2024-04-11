@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- 중구.js -->
+    <script src="js/중구.js"></script>
+
+</head>
+<body>
+    
+    <div style="width:500px; height:500px; border:1px solid; padding:15px; margin:10px auto; color: rgb(216, 216, 216)">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        //DataArray 추출
+        const arr = 중구맛집.data;
+        // console.log(중구맛집);
+
+        //FD_CS(음식카테고리) 만 가져오기
+        const arr_fd_cs = arr.map((item)=>{return item.FD_CS});
+        // console.log(arr_fd_cs);
+
+        //카테고리 별로 누적
+        // arr_fd_cs.reduce(()=>{},{});
+        const catAcc = arr_fd_cs.reduce((acc,item)=>{
+            // console.log(item);
+            if(acc.hasOwnProperty(item)){
+                acc[item] += 1; //acc에 들어있으면 +1하여 저장
+            }else{
+                acc[item] = 1;  //acc에 안들어있으면 1로 시작하여 저장하여 시작
+            }
+            return acc;
+        },{});
+
+        console.log(catAcc);
+        const cat_keys = Object.keys(catAcc);   //모든 키 추출
+        const cat_values = Object.values(catAcc);   //모든 키 추출
+        console.log(cat_keys);
+        console.log(cat_values);
+
+        const drawChart = (labelsArr,dataSet)=>{
+            
+            //차트 데이터
+            var data = {
+                labels : labelsArr,
+                datasets : [{
+                    label : 'FD_CS',
+                    data : dataSet,
+                    backgroundColor : [
+                        'rgba(255,192,203,0.5)',
+                        'rgba(255,217,147,0.5)',
+                        'rgba(255,255,171,0.5)',
+                        'rgba(144,238,144,0.5)',
+                        'rgba(135,206,235,0.5)',
+                        'rgba(126,126,255,0.5)',
+                        'rgba(194,118,194,0.5)',
+                        'rgba(216,216,216,0.5)'
+                    ],
+                    borderColor : [
+                        'rgba(255,192,203,0.5)',
+                        'rgba(255,217,147,0.5)',
+                        'rgba(255,255,171,0.5)',
+                        'rgba(144,238,144,0.5)',
+                        'rgba(135,206,235,0.5)',
+                        'rgba(126,126,255,0.5)',
+                        'rgba(194,118,194,0.5)',
+                        'rgba(216,216,216,0.5)'
+                    ],
+                    borderWidth : 1,
+                }]
+            }
+
+            //차트 옵션(범례, x/y축, animation, layout, plugin..)
+            var options = {
+                scales : {
+                    y : {
+                        beginAtZero : true,
+                    }
+                }
+            }
+
+            //캔버스 요소 선택
+            var ctx = document.querySelector('#myChart').getContext('2d');
+
+            //차트 객체생성
+            var myChart = new Chart(ctx,{
+                type : 'pie', //line, pie, doughnut, bubble, scatter, heatmap...
+                data : data,
+                options : options
+            })
+
+        }
+        drawChart(cat_keys, cat_values);
+
+    </script>
+</body>
+</html>
